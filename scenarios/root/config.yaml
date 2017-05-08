@@ -1,7 +1,4 @@
 ---
-scenarios:
-  - root/servers
-
 pipeline_script: .pipeline
 
 environments:
