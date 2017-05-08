@@ -1,0 +1,5 @@
+---
+defaultActionParams:
+  PipelineController:
+    deployHandler:
+      handler: Ansible

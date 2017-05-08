@@ -1,0 +1,6 @@
+---
+scenarios:
+  - root/environments/migrate
+environments:
+  migrate:
+    deploy_target: git_target

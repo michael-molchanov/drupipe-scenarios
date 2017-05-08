@@ -1,0 +1,4 @@
+environments:
+  migrate:
+    git_reference: migrate
+    state: migrate

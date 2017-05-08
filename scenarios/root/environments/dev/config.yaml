@@ -1,0 +1,4 @@
+environments:
+  dev:
+    git_reference: develop
+    state: development

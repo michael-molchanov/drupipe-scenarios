@@ -1,0 +1,7 @@
+---
+scenarios:
+  - single
+  - root/environments/stage
+
+states:
+  staging:

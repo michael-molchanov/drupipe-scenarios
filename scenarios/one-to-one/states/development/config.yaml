@@ -1,0 +1,9 @@
+---
+scenarios:
+  - docman/states/development
+components:
+  master:
+    root_repo_states:
+      development:
+        type: branch
+        version: develop

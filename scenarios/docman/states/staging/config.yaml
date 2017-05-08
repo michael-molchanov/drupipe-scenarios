@@ -1,0 +1,16 @@
+---
+scenarios:
+  - docman/environments/stage
+components:
+  master:
+    states:
+      staging:
+        type: branch
+        version: staging
+deploy_targets:
+  git_target:
+    states:
+      staging: stage
+environments:
+  stage:
+    deploy_target: git_target

@@ -1,0 +1,9 @@
+---
+scenarios:
+  - root
+  - docman/default
+
+defaultActionParams:
+  PipelineController:
+    buildHandler:
+      handler: Docman

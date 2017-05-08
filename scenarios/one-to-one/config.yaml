@@ -1,0 +1,7 @@
+---
+scenarios:
+  - docman
+
+components:
+  master:
+    type: root_chain

@@ -1,0 +1,7 @@
+---
+scenarios:
+  - single
+  - root/environments/dev
+
+states:
+  development:

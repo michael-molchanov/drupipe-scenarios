@@ -1,0 +1,17 @@
+---
+scenarios:
+  - docman/environments/prod
+
+components:
+  master:
+    states:
+      stable:
+        source:
+          type: :retrieve_from_repo
+          repo: :project_repo
+          branch: state_stable
+          file: info.yaml
+deploy_targets:
+  git_target:
+    states:
+      stable: prod

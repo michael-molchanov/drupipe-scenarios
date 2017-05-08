@@ -1,0 +1,9 @@
+---
+scenarios:
+  - root/environments/prod
+environments:
+  prod:
+    deploy_target: git_target
+    tagger:
+      enabled: true
+      handler: :option

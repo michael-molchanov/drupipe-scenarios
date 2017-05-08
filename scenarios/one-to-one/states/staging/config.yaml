@@ -1,0 +1,9 @@
+---
+scenarios:
+  - docman/states/staging
+components:
+  master:
+    root_repo_states:
+      staging:
+        type: branch
+        version: staging

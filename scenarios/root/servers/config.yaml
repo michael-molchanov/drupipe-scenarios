@@ -1,0 +1,5 @@
+---
+servers:
+  demo.adyax:
+    host: demo-proto-zebra.adyax.net
+    user: zebra

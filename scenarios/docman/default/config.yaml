@@ -1,0 +1,134 @@
+---
+override_docman_default: true
+
+# common hooks used in deploy targets below
+common_hooks:
+  - &execute_yaml_file
+    type: yaml_execute
+    source_type: file
+    order: -10
+    stage: build
+
+  - &execute_yaml_file_for_git_provider
+    <<: *execute_yaml_file
+    providers:
+      - :git_repo_provider
+
+  - &remove_git_dir
+    type: :yaml_execute
+    providers:
+      - :git_repo_provider
+    order: 0
+    commands:
+      - rm -fR .git
+
+  - &git_commit
+    type: :git_commit
+    order: 100
+
+deploy_targets:
+  # target for local build
+  local:
+    # deployer handler
+    handler: :common_deployer
+    builders:
+      root:
+        handler: :dir_builder
+      root_chain:
+        handler: :direct_builder
+        provider: :git_repo_provider
+        target_path_id: full_build_path
+        hooks:
+          builder:
+            after_execute:
+              - <<: *execute_yaml_file_for_git_provider
+      repo:
+        handler: :direct_builder
+        provider: :git_repo_provider
+        target_path_id: full_build_path
+        hooks:
+          builder:
+            after_execute:
+              - <<: *execute_yaml_file
+      dir:
+        handler: :dir_builder
+
+  # Target for striped (from .git dirs)
+  striped:
+    # deployer handler
+    handler: :common_deployer
+    builders:
+      root:
+        handler: :dir_builder
+      root_chain:
+        handler: :direct_builder
+        provider: :git_repo_provider
+        target_path_id: full_build_path
+        hooks:
+          builder:
+            after_execute:
+              - <<: *remove_git_dir
+              - <<: *execute_yaml_file_for_git_provider
+      repo:
+        handler: :direct_builder
+        provider: :git_repo_provider
+        target_path_id: full_build_path
+        hooks:
+          builder:
+            after_execute:
+              - <<: *remove_git_dir
+              - <<: *execute_yaml_file
+      dir:
+        handler: :dir_builder
+
+  # Target for pushing build result into target repo
+  git_target:
+    # deployer handler
+    handler: :git_deployer
+    builders:
+      root:
+        handler: :direct_builder
+        provider: :git_repo_provider
+        target_path_id: full_build_path
+        hooks:
+          builder:
+            after_execute:
+              - <<: *git_commit
+      root_chain:
+        handler: :git_root_chain_builder
+        provider: :git_repo_provider
+        target_path_id: temp_path
+        hooks:
+          builder:
+            after_execute:
+              - <<: *execute_yaml_file_for_git_provider
+              - <<: *git_commit
+      repo:
+        handler: :git_strip_builder
+        provider: :git_repo_provider
+        target_path_id: temp_path
+        hooks:
+        hooks:
+          builder:
+            before_execute:
+              - type: :git_pull
+            after_execute:
+              - <<: *execute_yaml_file_for_git_provider
+              - <<: *git_commit
+      dir:
+        handler: :dir_builder
+        hooks:
+          builder:
+            after_execute:
+              - <<: *git_commit
+
+# Recheck it
+environments:
+  local:
+    deploy_target: local
+    state: development
+    clean_changed: true
+  striped:
+    deploy_target: striped
+    state: development
+    clean_changed: true

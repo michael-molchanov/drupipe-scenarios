@@ -1,0 +1,6 @@
+---
+scenarios:
+  - root/environments/stage
+environments:
+  stage:
+    deploy_target: git_target

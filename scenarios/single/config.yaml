@@ -1,0 +1,10 @@
+---
+configSeedType: single
+
+scenarios:
+  - root
+
+defaultActionParams:
+  PipelineController:
+    buildHandler:
+      handler: false

@@ -1,0 +1,5 @@
+---
+defaultActionParams:
+  PipelineController:
+    operationsHandler:
+      handler: Druflow
