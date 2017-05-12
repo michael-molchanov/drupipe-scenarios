@@ -4,7 +4,7 @@ scenarios:
   - root/environments/dev
 
 tags:
-  -docman
+  - docman
 
 states:
   development:
