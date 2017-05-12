@@ -3,8 +3,5 @@ scenarios:
   - single
   - root/environments/dev
 
-tags:
-  - docman
-
 states:
   development:

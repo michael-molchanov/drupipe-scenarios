@@ -3,6 +3,9 @@ scenarios:
   - root
   - docman/default
 
+tags:
+  - docman
+
 defaultActionParams:
   PipelineController:
     buildHandler:
