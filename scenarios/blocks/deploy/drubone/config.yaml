@@ -1,0 +1,9 @@
+---
+blocks:
+  deploy:
+    stages:
+      - name: deploy
+        actions:
+          - action: Ansible.execute
+            params:
+              playbook: docroot/config/ansible/drubone_cache_delete.yml
