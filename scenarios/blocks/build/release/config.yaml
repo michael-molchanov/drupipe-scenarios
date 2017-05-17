@@ -1,0 +1,19 @@
+---
+blocks:
+  -
+    nodeName: default
+    withDocker: true
+    dockerImage: michaeltigr/zebra-build-php-drush-docman
+    stages:
+      - name: build
+        actions:
+          # TODO: move this config into drupipe
+          - action: Shell.execute
+            params:
+              shellCommand: git config --global user.email "zebra@adyax.com"; git config --global user.name "Zebra Pipeline"
+
+          - action: build
+            params:
+              buildHandler:
+                handler: Docman
+                method: releaseBuild
