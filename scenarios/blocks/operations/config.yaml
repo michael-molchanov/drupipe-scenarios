@@ -1,0 +1,10 @@
+---
+blocks:
+  operations:
+    nodeName: default
+    withDocker: true
+    dockerImage: michaeltigr/zebra-operations-druflow
+    stages:
+      - name: operations
+        actions:
+          - action: operations

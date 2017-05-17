@@ -3,3 +3,6 @@ defaultActionParams:
   PipelineController:
     operationsHandler:
       handler: Druflow
+
+tags:
+  - druflow

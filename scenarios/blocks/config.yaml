@@ -1,0 +1,7 @@
+---
+scenarios:
+  blocks:
+    - blocks/build
+    - blocks/deploy
+    - blocks/deploy/drubone-clear
+    - blocks/operations

@@ -1,0 +1,10 @@
+---
+blocks:
+  deploy:
+    nodeName: default
+    withDocker: true
+    dockerImage: michaeltigr/zebra-deploy-ansible
+    stages:
+      - name: deploy
+        actions:
+          - action: deploy

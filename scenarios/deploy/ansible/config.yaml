@@ -3,3 +3,6 @@ defaultActionParams:
   PipelineController:
     deployHandler:
       handler: Ansible
+
+tags:
+  - ansible
