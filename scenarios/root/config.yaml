@@ -6,3 +6,6 @@ environments:
     server: local
   test:
     git_reference: staging
+
+tags:
+  - drupipe
