@@ -1,6 +1,6 @@
 ---
 scenarios:
-  - docman/environments/dev
+  - roles/docman/environments/dev
 
 components:
   master:

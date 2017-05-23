@@ -1,6 +1,6 @@
 ---
 scenarios:
-  - docman/environments/prod
+  - roles/docman/environments/prod
 
 components:
   master:

@@ -1,6 +1,6 @@
 ---
 scenarios:
-  - docman/environments/stage
+  - roles/docman/environments/stage
 components:
   master:
     states:

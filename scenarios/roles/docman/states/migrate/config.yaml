@@ -1,6 +1,6 @@
 ---
 scenarios:
-  - docman/environments/migrate
+  - roles/docman/environments/migrate
 
 components:
   master:
