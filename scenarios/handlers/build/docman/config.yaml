@@ -1,6 +1,6 @@
 ---
 scenarios:
-  - roles/build/docman
+  - roles/docman
 
 defaultActionParams:
   PipelineController:
