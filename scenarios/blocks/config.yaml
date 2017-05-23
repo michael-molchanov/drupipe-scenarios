@@ -6,3 +6,4 @@ scenarios:
   - blocks/deploy
   - blocks/deploy/drubone
   - blocks/operations
+  - blocks/test
