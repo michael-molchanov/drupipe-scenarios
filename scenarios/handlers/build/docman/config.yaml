@@ -1,4 +1,7 @@
 ---
+scenarios:
+  - roles/build/docman
+
 defaultActionParams:
   PipelineController:
     buildHandler:
