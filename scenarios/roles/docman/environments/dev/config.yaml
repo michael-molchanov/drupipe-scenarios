@@ -1,6 +1,25 @@
 ---
 scenarios:
   - root/environments/dev
+
 environments:
   dev:
     deploy_target: git_target
+
+components:
+  master:
+    states:
+      development:
+        type: branch
+        version: develop
+
+deploy_targets:
+  local:
+    states:
+      development: local
+  striped:
+    states:
+      development: local
+  git_target:
+    states:
+      development: dev

@@ -5,3 +5,15 @@ scenarios:
 environments:
   migrate:
     deploy_target: git_target
+
+components:
+  master:
+    states:
+      staging:
+        type: branch
+        version: migrate
+
+deploy_targets:
+  git_target:
+    states:
+      migrate: migrate
