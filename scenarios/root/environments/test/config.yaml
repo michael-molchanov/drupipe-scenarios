@@ -1,0 +1,4 @@
+environments:
+  test:
+    git_reference: staging
+    state: staging
