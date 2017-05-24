@@ -11,6 +11,7 @@ components:
           repo: :project_repo
           branch: state_stable
           file: info.yaml
+
 deploy_targets:
   git_target:
     states:

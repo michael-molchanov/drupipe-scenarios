@@ -13,7 +13,3 @@ deploy_targets:
   git_target:
     states:
       staging: stage
-
-environments:
-  stage:
-    deploy_target: git_target

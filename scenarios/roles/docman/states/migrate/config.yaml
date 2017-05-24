@@ -8,6 +8,7 @@ components:
       staging:
         type: branch
         version: migrate
+
 deploy_targets:
   git_target:
     states:

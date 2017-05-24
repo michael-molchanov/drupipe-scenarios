@@ -8,6 +8,7 @@ components:
       development:
         type: branch
         version: develop
+
 deploy_targets:
   local:
     states:
