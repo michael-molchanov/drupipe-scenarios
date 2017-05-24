@@ -1,6 +1,6 @@
 ---
 scenarios:
-  - single
+  - roles/single
   - root/environments/prod
 
 states:

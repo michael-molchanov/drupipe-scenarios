@@ -1,6 +1,6 @@
 ---
 scenarios:
-  - docman/states/stable
+  - roles/docman/states/stable
 components:
   master:
     root_repo_states:

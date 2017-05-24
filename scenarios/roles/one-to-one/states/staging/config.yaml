@@ -1,6 +1,6 @@
 ---
 scenarios:
-  - docman/states/staging
+  - roles/docman/states/staging
 components:
   master:
     root_repo_states:
