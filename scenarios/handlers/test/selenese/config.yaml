@@ -3,6 +3,7 @@ defaultActionParams:
   PipelineController:
     testHandler:
       handler: SeleneseTester
+      method: test
 
 tags:
   - selenese
