@@ -1,0 +1,12 @@
+---
+scenarios:
+  - docman/environments/stage
+
+environments:
+  test:
+    deploy_target: git_target
+
+deploy_targets:
+  git_target:
+    states:
+      staging: test
