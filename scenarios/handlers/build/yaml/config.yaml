@@ -1,0 +1,8 @@
+---
+defaultActionParams:
+  PipelineController:
+    buildHandler:
+      handler: YamlFileProcessor
+
+tags:
+  - yaml

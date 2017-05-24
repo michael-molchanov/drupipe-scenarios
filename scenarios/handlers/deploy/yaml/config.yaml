@@ -1,0 +1,8 @@
+---
+defaultActionParams:
+  PipelineController:
+    deployHandler:
+      handler: YamlFileProcessor
+
+tags:
+  - yaml
