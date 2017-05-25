@@ -1,0 +1,7 @@
+---
+jobs:
+  release-build:
+    type: release-build
+    pipeline:
+      blocks:
+        - build-release
