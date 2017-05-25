@@ -3,6 +3,3 @@ defaultActionParams:
   PipelineController:
     buildHandler:
       handler: Docman
-
-tags:
-  - docman

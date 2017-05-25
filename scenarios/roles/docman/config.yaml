@@ -3,3 +3,6 @@ scenarios:
   - root
   - roles/docman/default
   - handlers/build/docman
+
+tags:
+  - docman
