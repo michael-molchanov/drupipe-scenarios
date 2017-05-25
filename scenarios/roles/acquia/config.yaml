@@ -2,4 +2,5 @@
 scenarios:
   - roles/docman
   - handlers/deploy/acquia
+  - drupipe:handlers/build/docman
   - blocks/deploy/acquia
