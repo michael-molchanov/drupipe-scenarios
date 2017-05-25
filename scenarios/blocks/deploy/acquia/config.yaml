@@ -1,0 +1,6 @@
+---
+scenarios:
+  - blocks/deploy
+blocks:
+  deploy:
+    dockerImage: michaeltigr/zebra-operations-druflow
