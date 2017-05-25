@@ -1,0 +1,5 @@
+---
+scenarios:
+  - roles/docman
+  - handlers/deploy/acquia
+  - blocks/deploy/acquia
