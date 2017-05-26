@@ -1,0 +1,6 @@
+---
+scenarios:
+  - root/environments/prod
+
+states:
+  stable:
