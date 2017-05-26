@@ -2,7 +2,7 @@
 defaultActionParams:
   PipelineController:
     operationsHandler:
-      handler: YamlFileProcessor
+      handler: YamlFileHandler
 
 tags:
   - yaml
