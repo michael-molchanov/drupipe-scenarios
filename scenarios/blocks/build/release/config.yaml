@@ -12,6 +12,11 @@ blocks:
             params:
               shellCommand: git config --global user.email "zebra@adyax.com"; git config --global user.name "Zebra Pipeline"
 
+          - action: Shell.execute
+            params:
+              shellCommand: npm --version
+              shellCommand: grunt --version
+              shellCommand: compass --version
           - action: build
             params:
               buildHandler:
