@@ -1,0 +1,6 @@
+---
+scenarios:
+  - root/environments/preprod
+
+environments:
+  preprod:
