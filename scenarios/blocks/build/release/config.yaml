@@ -14,9 +14,8 @@ blocks:
 
           - action: Shell.execute
             params:
-              shellCommand: npm --version
-              shellCommand: grunt --version
-              shellCommand: compass --version
+              shellCommand: npm --version; compass --version; grunt --version
+
           - action: build
             params:
               buildHandler:
