@@ -1,6 +1,6 @@
 ---
 blocks:
-  build:
+  build-test:
     nodeName: default
     withDocker: true
     dockerImage: michaeltigr/zebra-build-php-drush-docman
