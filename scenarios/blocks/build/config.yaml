@@ -6,8 +6,9 @@ blocks:
     withDocker: true
     dockerImage: michaeltigr/zebra-build-php-drush-docman
     test:
-      - build
-      - build1
+      test2:
+        - build
+        - build1
         # actions:
           # - action: build
     # stages:
