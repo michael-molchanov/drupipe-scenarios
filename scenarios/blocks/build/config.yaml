@@ -12,10 +12,9 @@ blocks:
     test3:
       - build
       - build1
-        actions:
-          - action: build
+        # actions:
+          # - action: build
     # stages:
-      # -
-        # name: build
-          # - actions:
+      # name: build
+        # actions:
           # - action: build
