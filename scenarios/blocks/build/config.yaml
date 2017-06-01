@@ -14,7 +14,8 @@ blocks:
       - build1
         # actions:
           # - action: build
-    # stages:
-      # name: build
+    stages:
+      - test
+      # - name: build
         # actions:
           # - action: build
