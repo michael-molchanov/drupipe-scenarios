@@ -5,7 +5,11 @@ blocks:
     nodeName1: default1
     withDocker: true
     dockerImage: michaeltigr/zebra-build-php-drush-docman
-    test: test
+    test:
+       -
+        name: build
+        # actions:
+          # - action: build
     # stages:
       # name: build
         # actions:
