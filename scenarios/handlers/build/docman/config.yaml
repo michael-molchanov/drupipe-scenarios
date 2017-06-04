@@ -11,3 +11,6 @@ action:
         - action: action.build.docman
           params:
             param1: param1
+
+        - sh: ls -l
+
