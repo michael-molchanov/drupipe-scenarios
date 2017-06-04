@@ -4,7 +4,7 @@ defaultActionParams:
     buildHandler:
       handler: Docman
 
-actions:
+action:
   build:
     handler: docman
 
