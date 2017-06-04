@@ -8,6 +8,6 @@ action:
   build:
     handler:
       actions:
-        action: action.build.docman
-        params:
-          param1: param1
+        - action: action.build.docman
+          params:
+            param1: param1
