@@ -6,3 +6,7 @@ defaultActionParams:
 
 tags:
   - yaml
+
+action:
+  build:
+    handler: yaml
