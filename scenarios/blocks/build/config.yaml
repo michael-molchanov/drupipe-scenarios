@@ -18,4 +18,4 @@ blocks:
       -
         name: build
         actions:
-          - action: build
+          - action: action.build
