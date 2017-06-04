@@ -6,5 +6,5 @@ defaultActionParams:
 
 action:
   build:
-    handler: docman
+    handler: action.build.docman
 
