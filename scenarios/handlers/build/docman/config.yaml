@@ -12,5 +12,5 @@ action:
           params:
             param1: param1
 
-        - sh: ls -l
+        - sh: echo 'test'
 
