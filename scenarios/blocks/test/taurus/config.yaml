@@ -1,6 +1,6 @@
 ---
 blocks:
-  test:
+  test-taurus:
     nodeName: default
     withDocker: true
     dockerImage: michaeltigr/zebra-jmeter-taurus:latest
