@@ -1,0 +1,14 @@
+---
+blocks:
+  test:
+    nodeName: default
+    withDocker: true
+    dockerImage: michaeltigr/zebra-jmeter-taurus:latest
+    stages:
+      - name: test
+        actions:
+          - action: Taurus.test
+
+blocks:
+  test:
+    withDocker: false
