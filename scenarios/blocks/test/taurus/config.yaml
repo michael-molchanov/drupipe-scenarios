@@ -7,4 +7,4 @@ blocks:
     stages:
       - name: test
         actions:
-          - action: Taurus.test
+          - action: TaurusTester.test
