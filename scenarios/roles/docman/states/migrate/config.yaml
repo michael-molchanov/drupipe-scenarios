@@ -5,7 +5,7 @@ scenarios:
 components:
   master:
     states:
-      staging:
+      migrate:
         type: branch
         version: migrate
 
