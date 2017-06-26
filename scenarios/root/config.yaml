@@ -9,3 +9,14 @@ environments:
 
 tags:
   - drupipe
+
+contexts:
+  environment:
+    inject_from: environments
+  project:
+    inject_from: projects
+  component:
+    inject_from: components
+  state:
+    inject_from: components.master.states
+
