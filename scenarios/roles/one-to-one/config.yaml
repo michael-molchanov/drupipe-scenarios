@@ -1,6 +1,6 @@
 ---
 scenarios:
-  - docman
+  - roles/docman
 
 components:
   master:
