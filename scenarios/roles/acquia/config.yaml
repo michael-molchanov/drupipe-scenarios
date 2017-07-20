@@ -1,6 +1,6 @@
 ---
 scenarios:
   - roles/docman
+  - roles/druflow
   - handlers/deploy/acquia
-  - drupipe:handlers/build/docman
   - blocks/deploy/acquia
