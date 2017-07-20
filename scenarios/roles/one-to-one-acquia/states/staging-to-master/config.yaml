@@ -1,0 +1,9 @@
+---
+scenarios:
+  - roles/one-to-one/states/staging
+components:
+  master:
+    states:
+      staging:
+        type: branch
+        version: master

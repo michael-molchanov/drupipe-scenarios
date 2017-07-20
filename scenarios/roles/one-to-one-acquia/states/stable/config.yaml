@@ -1,0 +1,9 @@
+---
+scenarios:
+  - roles/docman/states/stable
+components:
+  master:
+    root_repo_states:
+      stable:
+        type: branch
+        version: master

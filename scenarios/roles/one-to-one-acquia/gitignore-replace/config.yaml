@@ -1,0 +1,10 @@
+components:
+  master:
+    hooks:
+      builder:
+        after_execute:
+          - type: :yaml_execute
+            environments: [dev, staging, stable]
+            commands:
+              - rm -f .gitignore
+              - cp -f .gitignore.docroot .gitignore
