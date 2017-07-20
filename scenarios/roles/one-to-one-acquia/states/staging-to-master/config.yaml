@@ -1,6 +1,6 @@
 ---
 scenarios:
-  - roles/one-to-one/states/staging
+  - roles/one-to-one-acquia/states/staging
 components:
   master:
     states:
