@@ -4,3 +4,7 @@ scenarios:
   - roles/druflow
   - handlers/deploy/acquia
   - blocks/deploy/acquia
+
+components:
+  master:
+    type: root_chain

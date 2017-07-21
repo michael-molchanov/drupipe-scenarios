@@ -1,3 +1,5 @@
 ---
 scenarios:
   - roles/docman
+  - handlers/deploy/ansible
+  - handlers/operations/yaml
