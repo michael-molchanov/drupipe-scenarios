@@ -1,0 +1,56 @@
+Version 0.1.0
+ - Merge pull request #3 from michael-molchanov/feature/roles-handlers
+ - Fix scenarios import for acquia roles.
+ - Add one-to-one acquia role.
+ - Add many-to-one acquia role.
+ - Move handlers to roles to avoid it in projects.
+ - Merge pull request #2 from michael-molchanov/feature/many-to-one-role
+ - Add Many-to-One role.
+ - Merge pull request #1 from michael-molchanov/fix/one-to-one-docman
+ - Fix docman reference in one-to-one role.
+ - debug
+ - debug
+ - debug
+ - Added taurus-test block
+ - debug
+ - Added versions check to build-release toold
+ - debug
+ - Changed single
+ - Renamed yaml handler
+ - debug
+ - Added job release-build
+ - debug
+ - Debug
+ - Added acquia & druflow roles
+ - Added acquia scenario
+ - Added deploy block acquia
+ - Added acquia handler
+ - Changed env states
+ - debug
+ - Moved config from docman states to envs
+ - Fixed migrate state
+ - debug
+ - debug
+ - Fixed roles paths
+ - Fixed roles paths
+ - Fixed states-env links
+ - debug
+ - Moved handlers
+ - Moved handlers
+ - Added blocks/test
+ - debug
+ - debug
+ - Added build info
+ - Fixed release build
+ - Added release-build
+ - Added drubone deploy block
+ - debug
+ - debug
+ - Added blocks
+ - Added docman tags
+ - debug
+ - debug
+ - Removed servers
+ - Initial commit
+ - Initial commit
+
