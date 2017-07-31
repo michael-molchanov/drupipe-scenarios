@@ -1,0 +1,4 @@
+---
+scenarios:
+  - root
+  - blocks/test/taurus
