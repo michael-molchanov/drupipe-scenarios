@@ -1,0 +1,17 @@
+---
+blocks:
+  vegeta-prepare:
+    nodeName: master
+    withDocker: false
+    stages:
+      - name: prepare
+        actions:
+          - action: VegetaTester.prepare
+  vegeta:
+    nodeName: default
+    withDocker: true
+    dockerImage: michaeltigr/zebra-vegeta:latest
+    stages:
+      - name: test
+        actions:
+          - action: VegetaTester.test
