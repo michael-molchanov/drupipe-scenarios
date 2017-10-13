@@ -1,6 +1,9 @@
 ---
 scenarios:
   - roles/docman
+  - roles/one-to-one/states/development
+  - roles/one-to-one/states/staging
+  - roles/one-to-one/states/stable
   - handlers/deploy/ansible
   - handlers/operations/yaml
 
