@@ -1,7 +1,13 @@
 ---
 scenarios:
-  - roles/single
-  - root/environments/stage
+  - roles/single/environments/stage
+
+components:
+  master:
+    states:
+      staging:
+        type: branch
+        version: staging
 
 states:
-  staging:
+  staging: stage

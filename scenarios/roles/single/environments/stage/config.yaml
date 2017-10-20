@@ -2,5 +2,12 @@
 scenarios:
   - root/environments/stage
 
+components:
+  master:
+    states:
+      staging:
+        type: branch
+        version: staging
+
 states:
-  staging:
+  staging: stage

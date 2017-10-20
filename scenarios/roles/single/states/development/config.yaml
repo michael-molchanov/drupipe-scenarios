@@ -1,7 +1,13 @@
 ---
 scenarios:
-  - roles/single
-  - root/environments/dev
+  - roles/single/environments/dev
+
+components:
+  master:
+    states:
+      development:
+        type: branch
+        version: develop
 
 states:
-  development:
+  development: dev
