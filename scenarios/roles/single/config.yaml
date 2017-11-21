@@ -1,13 +1,9 @@
 ---
-configSeedType: single
-
 scenarios:
   - root
   - roles/single/environments/dev
   - roles/single/environments/stage
   - roles/single/environments/prod
 
-defaultActionParams:
-  PipelineController:
-    buildHandler:
-      handler: false
+tags:
+  - single

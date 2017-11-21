@@ -1,7 +1,13 @@
 ---
 scenarios:
-  - roles/single
-  - root/environments/prod
+  - roles/single/environments/prod
+
+components:
+  master:
+    states:
+      stable:
+        type: branch
+        version: master
 
 states:
-  stable:
+  stable: prod
