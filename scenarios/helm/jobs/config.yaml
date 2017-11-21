@@ -52,8 +52,8 @@ jobs:
       destroy:
         from: .params.jobs.common.helm.destroy
 
-  stable-bump:
-    from:
-      - .params.jobs.common.bump_stable
-      - .params.jobs.gitlab.triggers.push.master
-      - .params.jobs.gitlab.webhooks.push
+  # stable-bump:
+    # from:
+      # - .params.jobs.common.bump_stable
+      # - .params.jobs.gitlab.triggers.push.master
+      # - .params.jobs.gitlab.webhooks.push
