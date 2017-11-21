@@ -1,0 +1,264 @@
+---
+from:
+  - root
+  - helm/blocks
+  - helm/jobs
+
+params:
+  actions:
+    GCloud:
+      params:
+        project_name: zebra-cicd
+        cluster_name: main
+        access_key_file_id: GCLOUD_ACCESS_KEY
+    Helm:
+      params:
+        chart_name: zebra-cd
+    Helm_apply:
+      params:
+        secret_values_file_id: HELM_ZEBRA_SECRETS_FILE
+
+  jobs:
+    folder:
+      params:
+        type: folder
+      dev:
+        params:
+          branch: develop
+          # Context params will be merged into main pipeline context.
+          context:
+            environment: dev
+      preprod:
+        params:
+          branch: master
+          # Context params will be merged into main pipeline context.
+          context:
+            environment: preprod
+            prod: false
+            preprod: false
+      prod:
+        params:
+          branch: master
+          # Context params will be merged into main pipeline context.
+          context:
+            environment: prod
+            prod: true
+            preprod: false
+      mr:
+        params:
+          # Context params will be merged into main pipeline context.
+          context:
+            environment: mr
+      helm:
+        install-jenkins:
+          params:
+            jobs:
+              status:
+                from: .params.jobs.common.helm.status
+              install:
+                from:
+                  - .params.jobs.common
+                pipeline:
+                  from: .params.pipelines.helm.install_jenkins
+              destroy:
+                from: .params.jobs.common.helm.destroy
+    common:
+      params:
+        type: common
+
+      bump_stable:
+        params:
+          pipeline:
+            from: .params.pipelines.bump_stable
+
+      helm:
+        status:
+          params:
+            pipeline:
+              from: .params.pipelines.helm.status
+        delete:
+          params:
+            pipeline:
+              from: .params.pipelines.helm.destroy
+
+    gitlab:
+      params:
+        name: 'jobs.gitlab'
+      mr:
+        params:
+          branch: "${GIT_COMMIT}"
+
+      webhooks:
+        push:
+          params:
+            webhooks:
+              - push_events: true
+        mr:
+          params:
+            webhooks:
+              - push_events: false
+                merge_requests_events: true
+
+      triggers:
+        push:
+          params:
+            triggers:
+              gitlabPush:
+                buildOnPushEvents: true
+                buildOnMergeRequestEvents: false
+                enableCiSkip: true
+          develop:
+            params:
+              triggers:
+                gitlabPush:
+                  includeBranches: ['develop']
+          master:
+            params:
+              triggers:
+                gitlabPush:
+                  includeBranches: ['master']
+        mr:
+          params:
+            triggers:
+              gitlabPush:
+                buildOnPushEvents: false
+                rebuildOpenMergeRequest: 'source'
+                includeBranches: ['master']
+                enableCiSkip: true
+
+  pipelines:
+    params:
+      name: default
+
+    bump_stable:
+      params:
+        pods:
+          - from: .params.pods.default
+            containers:
+              - from: .params.containers.common
+                blocks:
+                  - from: .params.blocks.bump-stable
+
+    helm:
+      params:
+        pre_pods:
+          - from: .params.pods.default
+            containers:
+              - from: .params.containers.gcloud
+                blocks:
+                  - from: .params.blocks.gcloud.auth
+
+      status:
+        params:
+          pods:
+            - from: .params.pods.default
+              containers:
+                - from: .params.containers.helm.status
+                - from: .params.containers.kubectl.status
+
+      destroy:
+        params:
+          pods:
+            - from: .params.pods.default
+              containers:
+                - from: .params.containers.helm.destroy
+
+      install_jenkins:
+        params:
+          pods:
+            - from: .params.pods.default
+              containers:
+                - from: .params.containers.helm
+                  blocks:
+                    - from: .params.blocks.helm.apply
+                    - from: .params.blocks.helm.status
+
+                - from: .params.containers.kubectl
+                  blocks:
+                    - from: .params.blocks.kubectl.rescale
+                    - from: .params.blocks.kubectl.status
+
+                - from: .params.containers.common
+                  blocks:
+                    - from: .params.blocks.healthcheck.wait-http-200
+
+                - from: .params.containers.kubectl
+                  blocks:
+                    - from: .params.blocks.kubectl.pod-logs
+                    - from: .params.blocks.kubectl.copy-file
+
+                - from: .params.containers.jenkins-cli
+                  blocks:
+                    - from: .params.blocks.jenkins.test
+
+  pods:
+    params:
+      containerized: true
+
+    master:
+      params:
+        containerized: false
+        name: master
+
+    default:
+      params:
+        name: default
+
+  containers:
+    params:
+      k8s:
+        ttyEnabled: true
+        command: cat
+        resourceRequestCpu: 50m
+        resourceLimitCpu: 500m
+        resourceRequestMemory: 200Mi
+        resourceLimitMemory: 1000Mi
+        alwaysPullImage: true
+
+    none:
+      params:
+        name: none
+
+    common:
+      params:
+        name: common
+        image: michaeltigr/zebra-build-php-drush-docman
+
+    gcloud:
+      params:
+        name: gcloud
+        image: google/cloud-sdk:alpine
+      auth:
+        params:
+          blocks:
+            - from: .params.blocks.gcloud.auth
+
+    kubectl:
+      params:
+        name: kubectl
+        image: lachlanevenson/k8s-kubectl:v1.8.2
+
+      status:
+        params:
+          blocks:
+            - from: .params.blocks.kubectl.status
+
+    helm:
+      params:
+        name: kubectl
+        image: lachlanevenson/k8s-helm:v2.6.1
+
+      status:
+        params:
+          blocks:
+            - from: .params.blocks.helm.status
+
+      destroy:
+        params:
+          blocks:
+            - from: .params.blocks.helm.destroy
+
+    jenkins-cli:
+      params:
+        name: jenkins-cli
+        image: aroq/docker-jenkins-cli:latest

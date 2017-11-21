@@ -1,0 +1,107 @@
+---
+params:
+  blocks:
+    kubectl:
+      rescale:
+        params:
+          actions:
+            - from: .params.actions.Kubectl.scale_down_up
+
+      copy-file:
+        params:
+          actions:
+            - from: .params.actions.Kubectl.get_pod_name
+            - from: .params.actions.Kubectl.copy_from_pod
+              pod_name: "${context.results.action.Kubectl_get_pod_name.stdout}"
+              source_file_name: /var/jenkins_home/zebra/user_token
+              destination: jenkins_user_token
+              post_process:
+                jenkins_user_token_file:
+                  type: result
+                  source: params.destination
+                  destination: context.jenkins.user_token_file
+
+            - from: .params.actions.Shell.execute
+              shellCommand: cat ${context.jenkins.user_token_file}
+
+      status:
+        params:
+          actions:
+            - from: .params.actions.Kubectl.get_pods
+            - from: .params.actions.Kubectl.get_loadbalancer_address
+
+      pod-logs:
+        params:
+          actions:
+            - from: .params.actions.Kubectl.get_pod_name
+            - from: .params.actions.Kubectl.get_pod_logs
+              pod_name: "${context.results.action.Kubectl_get_pod_name.stdout}"
+
+    healthcheck:
+      wait-http-200:
+        params:
+          actions:
+            - from: .params.actions.HealthCheck.wait_http_ok
+              url: ${context.results.action.Kubectl_get_loadbalancer_address.url}/login
+
+    gcloud:
+      auth:
+        params:
+          actions:
+            - from: .params.actions.GCloud.auth
+
+    helm:
+      params:
+        pre_actions:
+          - from: .params.actions.Helm.init
+
+      status:
+        params:
+          actions:
+            - from: .params.actions.Helm.status
+
+      apply:
+        params:
+          actions:
+            - from: .params.actions.Helm.apply
+
+      destroy:
+        params:
+          actions:
+            - from: .params.actions.Helm.delete
+
+    gitlab:
+      accept-mr:
+        params:
+          actions:
+            - from: .params.actions.Gitlab.acceptMR
+              message: All tests passed.
+
+    bump-stable:
+      params:
+        actions:
+          - from: .params.actions.Docman.bumpStable
+
+    get-stable-version:
+      params:
+        actions:
+          - from: .params.actions.Docman.getStable
+            dir: stable_version
+
+    jenkins:
+      test:
+        params:
+          actions:
+          - from: .params.actions.Jenkins.build
+            params:
+            jenkins_address: ${context.results.action.Kubectl_get_loadbalancer_address.url}
+            jenkins_user_token_file: ${context.jenkins.user_token_file}
+            jobName: mothership
+            args: -s
+            user: ${context.jenkins.username}
+
+          - from: .params.actions.Jenkins.seedTest
+            jenkins_address: ${context.results.action.Kubectl_get_loadbalancer_address.url}
+            jenkins_user_token_file: ${context.jenkins.user_token_file}
+            args: -s
+            user: ${context.jenkins.username}

@@ -1,0 +1,59 @@
+---
+jobs:
+  dev:
+    from:
+      - .params.jobs.folder.dev
+      - .params.jobs.folder.helm.install-jenkins
+    # 'user_params' will be created as Jenkins job parameters in all child jobs.
+    user_params:
+      HELM_CHART_NAME: zebra-cd
+    jobs:
+      install:
+        from:
+          - .params.jobs.gitlab.triggers.push.develop
+          - .params.jobs.gitlab.webhooks.push
+
+  preprod:
+    from:
+      - .params.jobs.folder.preprod
+      - .params.jobs.folder.helm.install-jenkins
+
+  prod:
+    from:
+      - .params.jobs.folder.prod
+      - .params.jobs.folder.helm.install-jenkins
+
+  merge-requests:
+    from: .params.jobs.folder.mr
+    jobs:
+      status:
+        from: .params.jobs.common.helm.status
+
+      install:
+        from:
+          - .params.jobs.common
+          - .params.jobs.gitlab.mr
+          - .params.jobs.gitlab.triggers.mr
+          - .params.jobs.gitlab.webhooks.mr
+        pipeline:
+          from: .params.pipelines.helm.install_jenkins
+          post_pods:
+            - from: .params.pods.master
+              containers:
+                - from: .params.containers.common
+                  blocks:
+                    - from: .params.blocks.gitlab.accept-mr
+          final_pods:
+            # TODO: add clean slaves kubectl command here.
+            - from: .params.pods.default
+              containers:
+                - from: .params.containers.helm.destroy
+
+      destroy:
+        from: .params.jobs.common.helm.destroy
+
+  stable-bump:
+    from:
+      - .params.jobs.common.bump_stable
+      - .params.jobs.gitlab.triggers.push.master
+      - .params.jobs.gitlab.webhooks.push
