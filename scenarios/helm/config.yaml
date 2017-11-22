@@ -76,7 +76,7 @@ params:
           params:
             pipeline:
               from: .params.pipelines.helm.status
-        delete:
+        destroy:
           params:
             pipeline:
               from: .params.pipelines.helm.destroy
