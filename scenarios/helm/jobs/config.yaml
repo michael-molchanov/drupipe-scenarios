@@ -50,7 +50,7 @@ jobs:
                 - from: .params.containers.helm.destroy
 
       destroy:
-        from: .params.jobs.helm.destroy
+        from: .params.jobs.common.helm.destroy
 
   # stable-bump:
     # from:
