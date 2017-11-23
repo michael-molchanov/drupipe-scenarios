@@ -48,7 +48,7 @@ params:
         destroy:
           params:
             pipeline:
-            from: .params.pipelines.helm.destroy
+              from: .params.pipelines.helm.destroy
 
     gitlab:
       params:
