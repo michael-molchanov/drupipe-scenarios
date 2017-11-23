@@ -19,11 +19,6 @@ params:
         secret_values_file_id: HELM_ZEBRA_SECRETS_FILE
 
   jobs:
-    common:
-      bump_stable:
-        params:
-          pipeline:
-            from: .params.pipelines.bump_stable
     folder:
       helm:
         install-jenkins:
@@ -39,6 +34,12 @@ params:
               destroy:
                 from: .params.jobs.common.helm.destroy
 
+    common:
+      bump_stable:
+        params:
+          pipeline:
+            from: .params.pipelines.bump_stable
+      helm:
         status:
           params:
             pipeline:
@@ -47,7 +48,7 @@ params:
         destroy:
           params:
             pipeline:
-              from: .params.pipelines.helm.destroy
+            from: .params.pipelines.helm.destroy
 
     gitlab:
       params:
