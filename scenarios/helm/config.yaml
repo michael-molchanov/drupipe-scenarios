@@ -160,16 +160,6 @@ params:
                     - from: .params.blocks.jenkins.test
 
   containers:
-    params:
-      k8s:
-        ttyEnabled: true
-        command: cat
-        resourceRequestCpu: 50m
-        resourceLimitCpu: 500m
-        resourceRequestMemory: 200Mi
-        resourceLimitMemory: 1000Mi
-        alwaysPullImage: true
-
     gcloud:
       params:
         name: gcloud
