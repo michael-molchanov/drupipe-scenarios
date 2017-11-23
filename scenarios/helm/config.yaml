@@ -20,35 +20,6 @@ params:
 
   jobs:
     folder:
-      params:
-        type: folder
-      dev:
-        params:
-          branch: develop
-          # Context params will be merged into main pipeline context.
-          context:
-            environment: dev
-      preprod:
-        params:
-          branch: master
-          # Context params will be merged into main pipeline context.
-          context:
-            environment: preprod
-            prod: false
-            preprod: false
-      prod:
-        params:
-          branch: master
-          # Context params will be merged into main pipeline context.
-          context:
-            environment: prod
-            prod: true
-            preprod: false
-      mr:
-        params:
-          # Context params will be merged into main pipeline context.
-          context:
-            environment: mr
       helm:
         install-jenkins:
           params:
@@ -62,9 +33,6 @@ params:
                   from: .params.pipelines.helm.install_jenkins
               destroy:
                 from: .params.jobs.common.helm.destroy
-    common:
-      params:
-        type: common
 
       bump_stable:
         params:
@@ -214,15 +182,6 @@ params:
         resourceRequestMemory: 200Mi
         resourceLimitMemory: 1000Mi
         alwaysPullImage: true
-
-    none:
-      params:
-        name: none
-
-    common:
-      params:
-        name: common
-        image: michaeltigr/zebra-build-php-drush-docman
 
     gcloud:
       params:
