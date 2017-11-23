@@ -159,19 +159,6 @@ params:
                   blocks:
                     - from: .params.blocks.jenkins.test
 
-  pods:
-    params:
-      containerized: true
-
-    master:
-      params:
-        containerized: false
-        name: master
-
-    default:
-      params:
-        name: default
-
   containers:
     params:
       k8s:
