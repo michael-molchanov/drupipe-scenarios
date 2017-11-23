@@ -34,20 +34,21 @@ params:
               destroy:
                 from: .params.jobs.common.helm.destroy
 
-      bump_stable:
-        params:
-          pipeline:
-            from: .params.pipelines.bump_stable
-
-      helm:
         status:
           params:
             pipeline:
               from: .params.pipelines.helm.status
+
         destroy:
           params:
             pipeline:
               from: .params.pipelines.helm.destroy
+
+    common:
+      bump_stable:
+        params:
+          pipeline:
+            from: .params.pipelines.bump_stable
 
     gitlab:
       params:
