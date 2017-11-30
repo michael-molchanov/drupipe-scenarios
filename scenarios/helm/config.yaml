@@ -4,6 +4,9 @@ from:
   - helm/blocks
   - helm/jobs
 
+tags:
+  - single
+
 params:
   actions:
     GCloud:
