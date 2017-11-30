@@ -1,6 +1,7 @@
 ---
 from:
   - helm
+  - helm/jenkins/jobs
 
 params:
   actions:

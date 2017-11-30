@@ -1,0 +1,19 @@
+---
+jobs:
+  dev:
+    from:
+      - .params.jobs.folder.helm.install-jenkins
+
+  preprod:
+    from:
+      - .params.jobs.folder.helm.install-jenkins
+
+  prod:
+    from:
+      - .params.jobs.folder.helm.install-jenkins
+
+  merge-requests:
+    jobs:
+      install:
+        pipeline:
+          from: .params.pipelines.helm.install_jenkins
