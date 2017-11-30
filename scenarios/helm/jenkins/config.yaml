@@ -30,7 +30,8 @@ params:
                   from: .params.pipelines.helm.install_jenkins
               destroy:
                 from: .params.jobs.common.helm.destroy
-
+  pipelines:
+    helm:
       install_jenkins:
         params:
           pods:

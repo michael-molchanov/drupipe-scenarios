@@ -3,7 +3,6 @@ jobs:
   dev:
     from:
       - .params.jobs.folder.dev
-      - .params.jobs.folder.helm.install-jenkins
     # 'user_params' will be created as Jenkins job parameters in all child jobs.
     # user_params:
       # HELM_CHART_NAME: zebra-cd
@@ -16,12 +15,10 @@ jobs:
   preprod:
     from:
       - .params.jobs.folder.preprod
-      - .params.jobs.folder.helm.install-jenkins
 
   prod:
     from:
       - .params.jobs.folder.prod
-      - .params.jobs.folder.helm.install-jenkins
 
   merge-requests:
     from: .params.jobs.folder.mr
@@ -36,7 +33,6 @@ jobs:
           - .params.jobs.gitlab.triggers.mr
           - .params.jobs.gitlab.webhooks.mr
         pipeline:
-          from: .params.pipelines.helm.install_jenkins
           post_pods:
             - from: .params.pods.master
               containers:
