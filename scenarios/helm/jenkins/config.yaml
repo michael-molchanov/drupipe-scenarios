@@ -3,6 +3,9 @@ from:
   - helm
   - helm/jenkins/jobs
 
+tags:
+  - jenkins
+
 params:
   actions:
     GCloud:

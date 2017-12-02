@@ -6,6 +6,7 @@ from:
 
 tags:
   - single
+  - helm
 
 params:
   actions:
