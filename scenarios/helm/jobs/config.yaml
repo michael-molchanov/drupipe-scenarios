@@ -7,11 +7,11 @@ jobs:
     # user_params:
       # HELM_CHART_NAME: zebra-cd
     jobs:
-      install:
-        from:
-          - .params.jobs.common
-          - .params.jobs.gitlab.triggers.push.develop
-          - .params.jobs.gitlab.webhooks.push
+      # install:
+        # from:
+          # - .params.jobs.common
+          # - .params.jobs.gitlab.triggers.push.develop
+          # - .params.jobs.gitlab.webhooks.push
 
       status:
         from: .params.jobs.common.helm.status
