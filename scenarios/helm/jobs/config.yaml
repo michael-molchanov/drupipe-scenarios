@@ -5,7 +5,7 @@ jobs:
       - .params.jobs.folder.dev
     # 'user_params' will be created as Jenkins job parameters in all child jobs.
     # user_params:
-      # HELM_CHART_NAME: zebra-cd
+      # HELM_CHART_NAME: chart-name
     jobs:
       install:
         from:
