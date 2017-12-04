@@ -9,7 +9,7 @@ jobs:
     jobs:
       install:
         from:
-          - .params.jobs.common.helm.status
+          - .params.jobs.common.helm.install
           - .params.jobs.gitlab.triggers.push.develop
           - .params.jobs.gitlab.webhooks.push
 
