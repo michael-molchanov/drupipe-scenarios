@@ -21,7 +21,13 @@ params:
         params:
           pipeline:
             from: .params.pipelines.bump_stable
+
       helm:
+        install:
+          params:
+            pipeline:
+              from: .params.pipelines.helm.install
+
         status:
           params:
             pipeline:
@@ -106,6 +112,29 @@ params:
               containers:
                 - from: .params.containers.helm.status
                 - from: .params.containers.kubectl.status
+
+      install:
+        params:
+          pods:
+            - from: .params.pods.default
+              containers:
+                - from: .params.containers.helm
+                  blocks:
+                    - from: .params.blocks.helm.apply
+                    - from: .params.blocks.helm.status
+
+                # - from: .params.containers.kubectl
+                  # blocks:
+                    # - from: .params.blocks.kubectl.rescale
+                    # - from: .params.blocks.kubectl.status
+
+                # - from: .params.containers.common
+                  # blocks:
+                    # - from: .params.blocks.healthcheck.wait-http-200
+
+                - from: .params.containers.kubectl
+                  blocks:
+                    - from: .params.blocks.kubectl.pod-logs
 
       destroy:
         params:

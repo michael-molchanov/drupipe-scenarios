@@ -9,8 +9,15 @@ jobs:
     jobs:
       install:
         from:
+          - .params.jobs.common
           - .params.jobs.gitlab.triggers.push.develop
           - .params.jobs.gitlab.webhooks.push
+
+      status:
+        from: .params.jobs.common.helm.status
+
+      destroy:
+        from: .params.jobs.common.helm.destroy
 
   preprod:
     from:
