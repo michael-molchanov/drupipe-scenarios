@@ -8,17 +8,6 @@ tags:
   - jenkins
 
 params:
-  actions:
-    GCloud:
-      params:
-        project_name: zebra-cicd
-    Helm:
-      params:
-        chart_name: zebra-cd
-    Helm_apply:
-      params:
-        secret_values_file_id: HELM_ZEBRA_SECRETS_FILE
-
   jobs:
     folder:
       helm:
