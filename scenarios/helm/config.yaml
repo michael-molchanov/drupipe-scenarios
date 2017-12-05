@@ -8,6 +8,8 @@ tags:
   - single
   - helm
 
+pipeline_script_full: true
+
 params:
   actions:
     GCloud:
