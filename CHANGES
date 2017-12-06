@@ -1,3 +1,48 @@
+Version 0.1.1:
+ - Update config
+ - Update config
+ - Update helm config
+ - Update helm config
+ - Disable helm init on each helm call
+ - Update config
+ - Update helm config
+ - Update helm configs
+ - Update helm config
+ - Update helm config
+ - Update helm config
+ - Update helm config
+ - Update helm config
+ - Update helm configs
+ - Update helm config
+ - Refactor helm config
+ - Refactor helm config
+ - Refactor helm config
+ - Refactor helm
+ - Add tag single for helm
+ - Update config
+ - Fix destroy jobs
+ - Add uniconf params to default docman config
+ - Fixed common helm jobs
+ - Update config
+ - Fix helm jobs
+ - Moved container params to drupipe config
+ - Move pods params into drupipe config
+ - Move params to drupipe config
+ - Change helm destroy job
+ - Change helm delete to destroy job
+ - Update MR helm destroy job
+ - Disable stable-bump
+ - Merge branch 'master' of github.com:aroq/drupipe-scenarios
+ - Add helm scenarios (needs to be separated later)
+ - Merge pull request #6 from michael-molchanov/master
+ - Add root states to many-to-one role.
+ - Add root states to one-to-one role.
+ - Add docman states config.
+ - Merge pull request #5 from michael-molchanov/feature/vegeta
+ - Add vegeta blocks.
+ - Merge pull request #4 from michael-molchanov/feature/taurus-role
+ - Add taurus role.
+
 Version 0.1.0
  - Merge pull request #3 from michael-molchanov/feature/roles-handlers
  - Fix scenarios import for acquia roles.
