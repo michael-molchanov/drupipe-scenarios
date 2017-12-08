@@ -146,14 +146,14 @@ params:
                 - from: .params.containers.helm.destroy
 
   containers:
-    gcloud:
-      params:
-        name: gcloud
-        image: google/cloud-sdk:alpine
-      auth:
-        params:
-          blocks:
-            - from: .params.blocks.gcloud.auth
+    # gcloud:
+      # params:
+        # name: gcloud
+        # image: google/cloud-sdk:alpine
+      # auth:
+        # params:
+          # blocks:
+            # - from: .params.blocks.gcloud.auth
 
     kubectl:
       params:
