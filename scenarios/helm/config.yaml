@@ -100,12 +100,12 @@ params:
 
     helm:
       params:
-        pre_pods:
-          - from: .params.pods.default
-            containers:
-              - from: .params.containers.gcloud
-                blocks:
-                  - from: .params.blocks.gcloud.auth
+        # pre_pods:
+          # - from: .params.pods.default
+            # containers:
+              # - from: .params.containers.gcloud
+                # blocks:
+                  # - from: .params.blocks.gcloud.auth
 
       status:
         params:
