@@ -100,12 +100,12 @@ params:
 
     helm:
       params:
-        # pre_pods:
-          # - from: .params.pods.default
-            # containers:
-              # - from: .params.containers.gcloud
-                # blocks:
-                  # - from: .params.blocks.gcloud.auth
+        pre_pods:
+          - from: .params.pods.default
+            containers:
+              - from: .params.containers.gcloud
+                blocks:
+                  - from: .params.blocks.gcloud.auth
 
       status:
         params:
@@ -125,15 +125,6 @@ params:
                     - from: .params.blocks.helm.apply
                     - from: .params.blocks.helm.status
 
-                # - from: .params.containers.kubectl
-                  # blocks:
-                    # - from: .params.blocks.kubectl.rescale
-                    # - from: .params.blocks.kubectl.status
-
-                # - from: .params.containers.common
-                  # blocks:
-                    # - from: .params.blocks.healthcheck.wait-http-200
-
                 - from: .params.containers.kubectl
                   blocks:
                     - from: .params.blocks.kubectl.pod-logs
@@ -146,14 +137,14 @@ params:
                 - from: .params.containers.helm.destroy
 
   containers:
-    # gcloud:
-      # params:
-        # name: gcloud
-        # image: google/cloud-sdk:alpine
-      # auth:
-        # params:
-          # blocks:
-            # - from: .params.blocks.gcloud.auth
+    gcloud:
+      params:
+        name: gcloud
+        image: google/cloud-sdk:alpine
+      auth:
+        params:
+          blocks:
+            - from: .params.blocks.gcloud.auth
 
     kubectl:
       params:
