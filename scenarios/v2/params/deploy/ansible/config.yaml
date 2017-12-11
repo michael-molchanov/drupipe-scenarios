@@ -1,0 +1,15 @@
+---
+params:
+  containers:
+    common:
+      deploy:
+        params:
+          name: deploy
+          blocks:
+          - actions:
+            - from: .params.actions.Ansible.deploy
+              name: Ansible
+              methodName: deploy
+
+tags:
+  - ansible

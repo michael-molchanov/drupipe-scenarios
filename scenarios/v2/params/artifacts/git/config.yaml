@@ -1,0 +1,18 @@
+---
+params:
+  containers:
+    common:
+      artifact:
+        params:
+          name: artifact
+          blocks:
+          - actions:
+            - from: .params.actions.Ansible.deploy
+              name: PipelineController
+              methodName: retrieveArtifact
+              artifactHandler:
+                handler: GitArtifact
+                method: retrieve
+
+tags:
+  - gitartifact
