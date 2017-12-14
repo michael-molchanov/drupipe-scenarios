@@ -7,7 +7,7 @@ params:
           name: artifact
           blocks:
           - actions:
-            - from: .params.actions.Ansible.deploy
+            - from: .params.actions.PipelineController.retrieveArtifact
               name: PipelineController
               methodName: retrieveArtifact
               artifactHandler:

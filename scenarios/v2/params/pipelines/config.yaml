@@ -1,6 +1,3 @@
-from:
-  - v2/params/pods
-
 params:
   pipelines:
     state:
