@@ -1,0 +1,15 @@
+---
+params:
+  containers:
+    common:
+      operations:
+        params:
+          name: operations
+          blocks:
+          - actions:
+            - from: .params.actions.Druflow.operations
+              name: Druflow
+              methodName: operations
+
+tags:
+  - druflow

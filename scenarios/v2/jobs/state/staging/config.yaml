@@ -1,0 +1,6 @@
+from:
+  - v2/params/jobs
+
+jobs:
+  state-staging:
+    from: params.jobs.state-staging
