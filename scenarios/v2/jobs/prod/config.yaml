@@ -1,0 +1,6 @@
+from:
+  - v2/params/jobs
+
+jobs:
+  state-stable:
+    from: params.jobs.state-stable

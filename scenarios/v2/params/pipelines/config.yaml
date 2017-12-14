@@ -1,0 +1,21 @@
+from:
+  - v2/params/pods
+
+params:
+  pipelines:
+    state:
+      params:
+        pods:
+        - from: .params.pods.state
+    state-stable:
+      params:
+        pods:
+        - from: .params.pods.state-stable
+    release-build:
+      params:
+        pods:
+        - from: .params.pods.release-build
+    release-deploy:
+      params:
+        pods:
+        - from: .params.pods.release-deploy

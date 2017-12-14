@@ -1,4 +1,9 @@
 ---
+from:
+  - roles/docman/environments/dev
+  - roles/docman/environments/stage
+  - roles/docman/environments/prod
+
 params:
   containers:
     common:

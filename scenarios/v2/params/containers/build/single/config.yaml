@@ -1,4 +1,9 @@
 ---
+from:
+  - roles/single/environments/dev
+  - roles/single/environments/stage
+  - roles/single/environments/prod
+
 params:
   containers:
     common:
