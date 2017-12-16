@@ -7,4 +7,4 @@ params:
         params:
           blocks:
           - actions:
-            - from: .params.actions.Commands.deploy.execute
+            - from: .params.actions.Commands.deploy.${context.environment}.execute
