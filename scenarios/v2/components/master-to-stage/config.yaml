@@ -1,0 +1,15 @@
+---
+components:
+  master:
+    type: root_chain
+    root_repo_states:
+      development:
+        type: branch
+        version: develop
+      staging:
+        type: branch
+        version: staging
+    states:
+      staging:
+        type: branch
+        version: master
