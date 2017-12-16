@@ -1,0 +1,11 @@
+---
+from:
+  - v2/params/jobs
+
+jobs:
+  state-development:
+    from: params.jobs.state-staging
+    context:
+      cap_environment: staging
+      cap_branch: BRANCH=staging
+      cap_options: ""

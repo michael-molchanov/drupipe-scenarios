@@ -1,0 +1,11 @@
+---
+from:
+  - v2/params/jobs
+
+jobs:
+  state-development:
+    from: params.jobs.state-development
+    context:
+      cap_environment: dev
+      cap_branch: BRANCH=develop
+      cap_options: ""
