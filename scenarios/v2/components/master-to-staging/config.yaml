@@ -13,3 +13,7 @@ components:
       staging:
         type: branch
         version: master
+
+jobs:
+  state-staging:
+    branch: master
