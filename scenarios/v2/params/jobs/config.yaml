@@ -11,6 +11,7 @@ params:
         branch: develop
         pipeline:
           from: .params.pipelines.state
+
     state-staging:
       params:
         type: state
@@ -19,6 +20,7 @@ params:
         branch: staging
         pipeline:
           from: .params.pipelines.state
+
     state-stable:
       params:
         type: state
@@ -27,11 +29,13 @@ params:
         branch: master
         pipeline:
           from: .params.pipelines.state-stable
+
     release-build:
       params:
         type: release-build
         pipeline:
           from: .params.pipelines.release-build
+
     release-deploy:
       params:
         env: prod

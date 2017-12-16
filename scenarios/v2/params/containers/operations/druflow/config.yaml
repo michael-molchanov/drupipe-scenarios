@@ -6,10 +6,10 @@ params:
         params:
           name: operations
           blocks:
-          - actions:
-            - from: .params.actions.Druflow.operations
-              name: Druflow
-              methodName: operations
+            - actions:
+              - from: .params.actions.Druflow.operations
+                name: Druflow
+                methodName: operations
 
 tags:
   - druflow

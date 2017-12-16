@@ -6,10 +6,10 @@ params:
         params:
           name: operations
           blocks:
-          - actions:
-            - from: .params.actions.YamlFileHandler.operations
-              name: YamlFileHandler
-              methodName: operations
+            - actions:
+              - from: .params.actions.YamlFileHandler.operations
+                name: YamlFileHandler
+                methodName: operations
 
 tags:
   - yaml

@@ -6,13 +6,13 @@ params:
         params:
           name: artifact
           blocks:
-          - actions:
-            - from: .params.actions.PipelineController.retrieveArtifact
-              name: PipelineController
-              methodName: retrieveArtifact
-              artifactHandler:
-                handler: GitArtifact
-                method: retrieve
+            - actions:
+              - from: .params.actions.PipelineController.retrieveArtifact
+                name: PipelineController
+                methodName: retrieveArtifact
+                artifactHandler:
+                  handler: GitArtifact
+                  method: retrieve
 
 tags:
   - gitartifact

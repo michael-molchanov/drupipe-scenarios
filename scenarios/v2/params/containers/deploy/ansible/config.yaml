@@ -6,10 +6,10 @@ params:
         params:
           name: deploy
           blocks:
-          - actions:
-            - from: .params.actions.Ansible.deploy
-              name: Ansible
-              methodName: deploy
+            - actions:
+              - from: .params.actions.Ansible.deploy
+                name: Ansible
+                methodName: deploy
 
 tags:
   - ansible

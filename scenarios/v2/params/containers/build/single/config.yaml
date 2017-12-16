@@ -6,9 +6,9 @@ params:
         params:
           name: build
           blocks:
-          - actions:
-            - from: .params.actions.YamlFileHandler.build
-              name: YamlFileHandler
+            - actions:
+              - from: .params.actions.YamlFileHandler.build
+                name: YamlFileHandler
 
 tags:
   - yaml

@@ -6,9 +6,9 @@ params:
         params:
           name: build
           blocks:
-          - actions:
-            - from: .params.actions.Docman.build
-              name: Docman
+            - actions:
+              - from: .params.actions.Docman.build
+                name: Docman
 
 tags:
   - docman

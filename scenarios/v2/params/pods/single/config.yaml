@@ -2,24 +2,23 @@ params:
   pods:
     state:
       params:
-        from: .params.pods.default
         containers:
-        - from: .params.containers.common.build
-        - from: .params.containers.common.deploy
-        - from: .params.containers.common.operations
+          - from: .params.containers.common.build
+          - from: .params.containers.common.deploy
+          - from: .params.containers.common.operations
+
     state-stable:
       params:
-        from: .params.pods.default
         containers:
-        - from: .params.containers.common.build
+          - from: .params.containers.common.build
+
     release-build:
       params:
-        from: .params.pods.default
         containers:
-        - from: .params.containers.common.build
+          - from: .params.containers.common.build
+
     release-deploy:
       params:
-        from: .params.pods.default
         containers:
-        - from: .params.containers.common.deploy
-        - from: .params.containers.common.operations
+          - from: .params.containers.common.deploy
+          - from: .params.containers.common.operations
