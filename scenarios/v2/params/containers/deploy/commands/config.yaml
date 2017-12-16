@@ -1,0 +1,10 @@
+---
+params:
+  containers:
+    common:
+      deploy:
+        override: true
+        params:
+          blocks:
+          - actions:
+            - from: .params.actions.Commands.deploy.execute
