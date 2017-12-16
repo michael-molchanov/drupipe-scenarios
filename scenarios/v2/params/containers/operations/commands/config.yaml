@@ -1,0 +1,14 @@
+---
+params:
+  containers:
+    common:
+      operations:
+        override: true
+        params:
+          name: operations-commands
+          blocks:
+          - actions:
+            - from: .params.actions.Commands.operations.${context.environment}.execute
+
+tags:
+  - operations-commands
