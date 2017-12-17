@@ -3,9 +3,9 @@ params:
   containers:
     common:
       operations:
-        override: true
         params:
           name: operations
+          test: test
           blocks:
           - from: .params.blocks.operations.${context.block_operations_type}.${context.environment}
 
