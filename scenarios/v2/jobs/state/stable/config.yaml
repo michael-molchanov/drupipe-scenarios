@@ -3,4 +3,4 @@ from:
 
 jobs:
   state-stable:
-    from: params.jobs.state-stable
+    from: params.jobs.state.stable

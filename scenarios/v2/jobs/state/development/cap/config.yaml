@@ -4,7 +4,7 @@ from:
 
 jobs:
   state-development:
-    from: params.jobs.state-development
+    from: params.jobs.state.development
     context:
       cap_environment: dev
       cap_branch: BRANCH=develop
