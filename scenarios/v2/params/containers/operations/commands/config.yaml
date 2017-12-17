@@ -7,14 +7,6 @@ params:
           name: operations-commands
           blocks:
           - from: .params.blocks.operations.commands
-          # - actions:
-            # - from: .params.actions.Commands.operations.${context.environment}.execute
-  blocks:
-    operations:
-      commands:
-        params:
-        - actions:
-          - from: .params.actions.Commands.operations.${context.environment}.execute
 
 tags:
   - operations-commands

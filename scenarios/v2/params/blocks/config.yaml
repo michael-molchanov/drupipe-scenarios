@@ -4,9 +4,9 @@ params:
     operations:
       druflow:
         params:
-        - actions:
+          actions:
           - from: .params.actions.Druflow.operations
       commands:
         params:
-        - actions:
+          actions:
           - from: .params.actions.Commands.operations.${context.environment}.execute
