@@ -9,6 +9,12 @@ params:
             blocks:
             - actions:
               - from: .params.actions.Docman.build.${context.environment}.execute
+        single:
+          params:
+            name: build-single
+            blocks:
+            - actions:
+              - from: .params.actions.YamlFileHandler.build
       deploy:
         commands:
           params:
@@ -16,11 +22,38 @@ params:
             blocks:
             - actions:
               - from: .params.actions.Commands.deploy.${context.environment}.execute
+        ansible:
+          params:
+            name: deploy-ansible
+            blocks:
+            - actions:
+              - from: .params.actions.Ansible.${context.environment}..deploy
       operations:
+        druflow:
+          params:
+            name: operations-druflow
+            blocks:
+            - actions:
+              - from: .params.actions.Druflow.${context.environment}.operations
         commands:
           params:
             name: operations-commands
             blocks:
             - actions:
               - from: .params.actions.Commands.operations.${context.environment}.execute
-
+        yaml:
+          params:
+            name: operations-yaml
+            blocks:
+            - actions:
+              - from: .params.actions.YamlFileHandler.${context.environment}.operations
+      artifact:
+        git:
+          params:
+            name: artifact
+            blocks:
+            - actions:
+              - from: .params.actions.PipelineController.${context.environment}.retrieveArtifact
+                artifactHandler:
+                  handler: GitArtifact
+                  method: retrieve
