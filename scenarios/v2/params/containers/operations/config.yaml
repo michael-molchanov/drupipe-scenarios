@@ -7,5 +7,6 @@ params:
           name: operations
           test: test
           blocks:
-          - from: .params.blocks.operations.${context.block_operations_type}.${context.environment}
+          - from: .params.blocks.operations.commands.dev
+          # - from: .params.blocks.operations.${context.block_operations_type}.${context.environment}
 
