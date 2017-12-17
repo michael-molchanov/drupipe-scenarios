@@ -1,0 +1,11 @@
+---
+params:
+  containers:
+    common:
+      operations:
+        override: true
+        params:
+          name: operations
+          blocks:
+          - from: .params.blocks.operations.${context.block_operations_type}.${context.environment}
+

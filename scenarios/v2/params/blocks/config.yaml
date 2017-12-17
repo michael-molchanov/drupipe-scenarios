@@ -1,0 +1,12 @@
+---
+params:
+  blocks:
+    operations:
+      druflow:
+        params:
+        - actions:
+          - from: .params.actions.Druflow.operations
+      commands:
+        params:
+        - actions:
+          - from: .params.actions.Commands.operations.${context.environment}.execute
