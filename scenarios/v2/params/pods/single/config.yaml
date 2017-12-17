@@ -7,14 +7,14 @@ params:
           - from: .params.containers.common.build.${context.build_type}.development
           - from: .params.containers.common.deploy.${context.deploy_type}.development
           - from: .params.containers.common.operations.${context.operations_type}.development
-          - from: .params.containers.common.test.${context.operations_type}.development
+          - from: .params.containers.common.test.${context.test_type}.development
       staging:
         params:
           containers:
           - from: .params.containers.common.build.${context.build_type}.staging
           - from: .params.containers.common.deploy.${context.deploy_type}.staging
           - from: .params.containers.common.operations.${context.operations_type}.staging
-          - from: .params.containers.common.test.${context.operations_type}.staging
+          - from: .params.containers.common.test.${context.test_type}.staging
       stable:
         params:
           containers:
