@@ -8,7 +8,7 @@ params:
             name: build-deliverables
             blocks:
             - actions:
-              - from: .params.actions.Docman.build.${context.environment}.execute
+              - from: .params.actions.Docman.${context.environment}.build
         single:
           params:
             name: build-single
@@ -27,7 +27,7 @@ params:
             name: deploy-ansible
             blocks:
             - actions:
-              - from: .params.actions.Ansible.${context.environment}..deploy
+              - from: .params.actions.Ansible.${context.environment}.deploy
       operations:
         druflow:
           params:
