@@ -2,6 +2,13 @@
 params:
   containers:
     common:
+      build:
+        deliverables:
+          params:
+            name: build-deliverables
+            blocks:
+            - actions:
+              - from: .params.actions.Docman.build.${context.environment}.execute
       deploy:
         commands:
           params:

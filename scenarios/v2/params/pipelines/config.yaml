@@ -1,14 +1,19 @@
 params:
   pipelines:
     state:
-      params:
-        pods:
-        - from: .params.pods.state
+      development:
+        params:
+          pods:
+          - from: .params.pods.state.development
+      staging:
+        params:
+          pods:
+          - from: .params.pods.state.staging
 
-    state-stable:
-      params:
-        pods:
-        - from: .params.pods.state-stable
+      stable:
+        params:
+          pods:
+          - from: .params.pods.state.stable
 
     release-build:
       params:

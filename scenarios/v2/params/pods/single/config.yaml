@@ -1,24 +1,30 @@
 params:
   pods:
     state:
-      params:
-        containers:
-          - from: .params.containers.common.build
-          - from: .params.containers.common.deploy.${context.deploy_type}
-          - from: .params.containers.common.operations.${context.operations_type}
-
-    state-stable:
-      params:
-        containers:
-          - from: .params.containers.common.build
+      development:
+        params:
+          containers:
+          - from: .params.containers.common.build.${context.build_type}.development
+          - from: .params.containers.common.deploy.${context.deploy_type}.development
+          - from: .params.containers.common.operations.${context.operations_type}.development
+      staging:
+        params:
+          containers:
+          - from: .params.containers.common.build.${context.build_type}.staging
+          - from: .params.containers.common.deploy.${context.deploy_type}.staging
+          - from: .params.containers.common.operations.${context.operations_type}.staging
+      stable:
+        params:
+          containers:
+          - from: .params.containers.common.build.${context.build_type}.stable
 
     release-build:
       params:
         containers:
-          - from: .params.containers.common.build
+        - from: .params.containers.common.build.${context.build_type}.stable
 
     release-deploy:
       params:
         containers:
-          - from: .params.containers.common.deploy
-          - from: .params.containers.common.operations
+        - from: .params.containers.common.deploy.${context.deploy_type}.stable
+        - from: .params.containers.common.operations.${context.operations_type}.stable
