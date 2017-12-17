@@ -3,32 +3,33 @@ from:
 
 params:
   jobs:
-    state-development:
-      params:
-        type: state
-        state: development
-        env: dev
-        branch: develop
-        pipeline:
-          from: .params.pipelines.state
+    state:
+      development:
+        params:
+          type: state
+          state: development
+          env: dev
+          branch: develop
+          pipeline:
+            from: .params.pipelines.state.development
 
-    state-staging:
-      params:
-        type: state
-        state: staging
-        env: stage
-        branch: staging
-        pipeline:
-          from: .params.pipelines.state
+      staging:
+        params:
+          type: state
+          state: staging
+          env: stage
+          branch: staging
+          pipeline:
+            from: .params.pipelines.state.staging
 
-    state-stable:
-      params:
-        type: state
-        state: stable
-        env: prod
-        branch: master
-        pipeline:
-          from: .params.pipelines.state-stable
+      stable:
+        params:
+          type: state
+          state: stable
+          env: prod
+          branch: master
+          pipeline:
+            from: .params.pipelines.state.stable
 
     release-build:
       params:
