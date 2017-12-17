@@ -5,7 +5,7 @@ params:
         containers:
           - from: .params.containers.common.build
           - from: .params.containers.common.deploy
-          - from: .params.containers.common.operations.{$context.operations_type}
+          - from: .params.containers.common.operations.${context.operations_type}
 
     state-stable:
       params:
