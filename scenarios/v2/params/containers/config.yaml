@@ -7,13 +7,13 @@ params:
           params:
             name: deploy-commands
             blocks:
-              actions:
+            - actions:
               - from: .params.actions.Commands.deploy.${context.environment}.execute
       operations:
         commands:
           params:
             name: operations-commands
             blocks:
-              actions:
+            - actions:
               - from: .params.actions.Commands.operations.${context.environment}.execute
 
