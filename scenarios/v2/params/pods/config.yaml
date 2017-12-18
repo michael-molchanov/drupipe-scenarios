@@ -8,32 +8,32 @@ params:
       development:
         params:
           containers:
-          - from: .params.containers.common.build.${context.build_type}.development
-          - from: .params.containers.common.artifact.${context.artifact_type}.development
-          - from: .params.containers.common.deploy.${context.deploy_type}.development
-          - from: .params.containers.common.operations.${context.operations_type}.development
-          - from: .params.containers.common.test.${context.test_type}.development
+          - from: .params.containers.common.build.${context.container_types.build.dev.type}.development
+          - from: .params.containers.common.artifact.${context.container_types.artifact.dev.type}.development
+          - from: .params.containers.common.deploy.${context.container_types.deploy.dev.type}.development
+          - from: .params.containers.common.operations.${context.container_types.operations.dev.type}.development
+          - from: .params.containers.common.test.${context.container_types.test.dev.type}.development
       staging:
         params:
           containers:
-          - from: .params.containers.common.build.${context.build_type}.staging
-          - from: .params.containers.common.artifact.${context.artifact_type}.staging
-          - from: .params.containers.common.deploy.${context.deploy_type}.staging
-          - from: .params.containers.common.operations.${context.operations_type}.staging
-          - from: .params.containers.common.test.${context.test_type}.staging
+          - from: .params.containers.common.build.${context.container_types.build.dev.type}.staging
+          - from: .params.containers.common.artifact.${context.container_types.artifact.dev.type}.staging
+          - from: .params.containers.common.deploy.${context.container_types.deploy.dev.type}.staging
+          - from: .params.containers.common.operations.${context.container_types.operations.dev.type}.staging
+          - from: .params.containers.common.test.${context.container_types.test.dev.type}.staging
       stable:
         params:
           containers:
-          - from: .params.containers.common.build.${context.build_type}.stable
+          - from: .params.containers.common.build.${context.container_types.build.dev.type}.stable
 
     release-build:
       params:
         containers:
-        - from: .params.containers.common.build.${context.build_type}.stable
+          - from: .params.containers.common.build.${context.container_types.build.dev.type}.stable
 
     release-deploy:
       params:
         containers:
         - from: .params.containers.common.artifact.${context.artifact_type}.stable
-        - from: .params.containers.common.deploy.${context.deploy_type}.stable
-        - from: .params.containers.common.operations.${context.operations_type}.stable
+        - from: .params.containers.common.deploy.${context.container_types.deploy.dev.type}.stable
+        - from: .params.containers.common.operations.${context.container_types.operations.dev.type}.stable
