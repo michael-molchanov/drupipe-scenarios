@@ -8,32 +8,39 @@ params:
       development:
         params:
           containers:
-          - from: .params.containers.common.build.${context.container_types.build.dev.type}.development
-          - from: .params.containers.common.artifact.${context.container_types.artifact.dev.type}.development
-          - from: .params.containers.common.deploy.${context.container_types.deploy.dev.type}.development
-          - from: .params.containers.common.operations.${context.container_types.operations.dev.type}.development
-          - from: .params.containers.common.test.${context.container_types.test.dev.type}.development
+          - from: .params.containers.common.build.${context.container_types.build.development.type}.development
+          - from: .params.containers.common.artifact.${context.container_types.artifact.development.type}.development
+          - from: .params.containers.common.deploy.${context.container_types.deploy.development.type}.development
+          - from: .params.containers.common.operations.${context.container_types.operations.development.type}.development
+          - from: .params.containers.common.test.${context.container_types.test.development.type}.development
       staging:
         params:
           containers:
-          - from: .params.containers.common.build.${context.container_types.build.dev.type}.staging
-          - from: .params.containers.common.artifact.${context.container_types.artifact.dev.type}.staging
-          - from: .params.containers.common.deploy.${context.container_types.deploy.dev.type}.staging
-          - from: .params.containers.common.operations.${context.container_types.operations.dev.type}.staging
-          - from: .params.containers.common.test.${context.container_types.test.dev.type}.staging
+          - from: .params.containers.common.build.${context.container_types.build.staging.type}.staging
+          - from: .params.containers.common.artifact.${context.container_types.artifact.staging.type}.staging
+          - from: .params.containers.common.deploy.${context.container_types.deploy.staging.type}.staging
+          - from: .params.containers.common.operations.${context.container_types.operations.staging.type}.staging
+          - from: .params.containers.common.test.${context.container_types.test.staging.type}.staging
       stable:
         params:
           containers:
-          - from: .params.containers.common.build.${context.container_types.build.dev.type}.stable
+          - from: .params.containers.common.build.${context.container_types.build.stable.type}.stable
 
     release-build:
       params:
         containers:
-          - from: .params.containers.common.build.${context.container_types.build.dev.type}.stable
+          - from: .params.containers.common.build.${context.container_types.build.release.type}.release
 
-    release-deploy:
+    release-deploy-preprod:
       params:
         containers:
-        - from: .params.containers.common.artifact.${context.artifact_type}.stable
-        - from: .params.containers.common.deploy.${context.container_types.deploy.dev.type}.stable
-        - from: .params.containers.common.operations.${context.container_types.operations.dev.type}.stable
+        - from: .params.containers.common.artifact.${context.container_types.artifact.release-deploy-preprod.type}.release-deploy-preprod
+        - from: .params.containers.common.deploy.${context.container_types.deploy.release-deploy-preprod.type}.release-deploy-preprod
+        - from: .params.containers.common.operations.${context.container_types.operations.release-deploy-preprod.type}.release-deploy-preprod
+
+    release-deploy-prod:
+      params:
+        containers:
+        - from: .params.containers.common.artifact.${context.container_types.artifact.release-deploy-prod.type}.release-deploy-prod
+        - from: .params.containers.common.deploy.${context.container_types.deploy.release-deploy-prod.type}.release-deploy-prod
+        - from: .params.containers.common.operations.${context.container_types.operations.release-deploy-prod.type}.release-deploy-prod
