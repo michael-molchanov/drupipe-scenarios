@@ -1,0 +1,9 @@
+from:
+  - v2/params/jobs
+
+jobs:
+  release-deploy-prod:
+    from: params.jobs.release-deploy
+    env: prod
+    source:
+      pattern: stable-*
