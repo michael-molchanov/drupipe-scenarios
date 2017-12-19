@@ -4,3 +4,5 @@ from:
 jobs:
   state-staging:
     from: .params.jobs.state.staging
+    context:
+      environment: stage

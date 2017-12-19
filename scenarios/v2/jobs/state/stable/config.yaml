@@ -4,3 +4,5 @@ from:
 jobs:
   state-stable:
     from: .params.jobs.state.stable
+    context:
+      environment: prod
