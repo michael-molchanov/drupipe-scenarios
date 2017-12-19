@@ -3,4 +3,4 @@ from:
 
 jobs:
   state-staging:
-    from: params.jobs.state-staging
+    from: .params.jobs.state.staging

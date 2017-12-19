@@ -3,4 +3,4 @@ from:
 
 jobs:
   state-development:
-    from: params.jobs.state-development
+    from: .params.jobs.state.development

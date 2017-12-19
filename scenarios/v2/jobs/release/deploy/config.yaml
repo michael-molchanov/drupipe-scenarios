@@ -3,4 +3,4 @@ from:
 
 jobs:
   release-deploy:
-    from: params.jobs.release-deploy
+    from: .params.jobs.release-deploy

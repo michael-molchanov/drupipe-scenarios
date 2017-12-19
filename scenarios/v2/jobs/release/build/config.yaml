@@ -3,4 +3,4 @@ from:
 
 jobs:
   release-build:
-    from: params.jobs.release-build
+    from: .params.jobs.release-build

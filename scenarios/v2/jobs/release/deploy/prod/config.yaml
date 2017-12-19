@@ -3,7 +3,7 @@ from:
 
 jobs:
   release-deploy-prod:
-    from: params.jobs.release-deploy-prod
+    from: .params.jobs.release-deploy-prod
     env: prod
     source:
       pattern: stable-*
