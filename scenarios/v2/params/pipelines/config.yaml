@@ -24,7 +24,12 @@ params:
         pods:
         - from: .params.pods.release-build
 
-    release-deploy:
+    release-deploy-preprod:
       params:
         pods:
-        - from: .params.pods.release-deploy
+        - from: .params.pods.release-deploy-preprod
+
+    release-deploy-prod:
+      params:
+        pods:
+        - from: .params.pods.release-deploy-prod
