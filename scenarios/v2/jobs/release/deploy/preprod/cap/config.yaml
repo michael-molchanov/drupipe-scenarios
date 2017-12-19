@@ -7,7 +7,7 @@ jobs:
     env: preprod
     context:
       cap_environment: preprod
-      cap_branch: BRANCH=${context.env.release}
+      cap_branch: BRANCH=${release}
       cap_options: "--dry-run"
     source:
       pattern: stable-*
