@@ -6,7 +6,7 @@ jobs:
     from: params.jobs.release-deploy-preprod
     env: preprod
     context:
-      cap_environment: pp
+      cap_environment: preprod
       cap_branch: BRANCH=${context.env.release}
       cap_options: "--dry-run"
     source:
