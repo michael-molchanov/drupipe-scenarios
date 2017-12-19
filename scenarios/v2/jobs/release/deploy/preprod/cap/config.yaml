@@ -1,0 +1,13 @@
+from:
+  - v2/params/jobs
+
+jobs:
+  release-deploy-preprod:
+    from: params.jobs.release-deploy
+    env: preprod
+    context:
+      cap_environment: preprod
+      cap_branch: BRANCH=${context.env.release}
+      cap_options: ""
+    source:
+      pattern: stable-*
