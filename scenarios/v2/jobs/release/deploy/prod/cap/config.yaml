@@ -7,7 +7,7 @@ jobs:
     env: prod
     context:
       cap_environment: prod
-      cap_branch: BRANCH=${context.env.release}
+      cap_branch: BRANCH=${release}
       cap_options: ""
     source:
       pattern: stable-*
