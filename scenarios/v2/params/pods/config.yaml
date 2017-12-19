@@ -34,7 +34,7 @@ params:
     release-deploy-preprod:
       params:
         containers:
-        - from: .params.containers.common.artifact.${context.container_types.artifact.deploy-preprod.type}.release-deploy-preprod
+        - from: .params.containers.common.artifact.${context.container_types.artifact.release-deploy-preprod.type}.release-deploy-preprod
         - from: .params.containers.common.deploy.${context.container_types.deploy.release-deploy-preprod.type}.release-deploy-preprod
         - from: .params.containers.common.operations.${context.container_types.operations.release-deploy-preprod.type}.release-deploy-preprod
 
