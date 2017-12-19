@@ -31,28 +31,30 @@ params:
           pipeline:
             from: .params.pipelines.state.stable
 
-    release-build:
-      params:
-        type: release-build
-        pipeline:
-          from: .params.pipelines.release-build
+    release:
+      build:
+        params:
+          type: release-build
+          pipeline:
+            from: .params.pipelines.release.build
 
-    release-deploy-preprod:
-      params:
-        env: prod
-        type: release-deploy
-        pipeline:
-          from: .params.pipelines.release-deploy-preprod
-        source:
-          type: tags
-          pattern: stable-*
+      deploy:
+        preprod:
+          params:
+            env: prod
+            type: release-deploy
+            pipeline:
+              from: .params.pipelines.release.deploy.preprod
+            source:
+              type: tags
+              pattern: stable-*
 
-    release-deploy-prod:
-      params:
-        env: prod
-        type: release-deploy
-        pipeline:
-          from: .params.pipelines.release-deploy-prod
-        source:
-          type: tags
-          pattern: stable-*
+        prod:
+          params:
+            env: prod
+            type: release-deploy
+            pipeline:
+              from: .params.pipelines.release.deploy.prod
+            source:
+              type: tags
+              pattern: stable-*
