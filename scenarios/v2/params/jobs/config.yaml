@@ -4,9 +4,10 @@ from:
 params:
   jobs:
     state:
+      params:
+        type: state
       development:
         params:
-          type: state
           state: development
           env: dev
           branch: develop
@@ -15,7 +16,6 @@ params:
 
       staging:
         params:
-          type: state
           state: staging
           env: stage
           branch: staging
@@ -24,7 +24,6 @@ params:
 
       stable:
         params:
-          type: state
           state: stable
           env: prod
           branch: master
@@ -46,7 +45,7 @@ params:
             pattern: stable-*
         preprod:
           params:
-            env: prod
+            env: preprod
             pipeline:
               from: .params.pipelines.release.deploy.preprod
         prod:
