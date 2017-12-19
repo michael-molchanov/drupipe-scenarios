@@ -39,22 +39,18 @@ params:
             from: .params.pipelines.release.build
 
       deploy:
+        params:
+          type: release-deploy
+          source:
+            type: tags
+            pattern: stable-*
         preprod:
           params:
             env: prod
-            type: release-deploy
             pipeline:
               from: .params.pipelines.release.deploy.preprod
-            source:
-              type: tags
-              pattern: stable-*
-
         prod:
           params:
             env: prod
-            type: release-deploy
             pipeline:
               from: .params.pipelines.release.deploy.prod
-            source:
-              type: tags
-              pattern: stable-*
