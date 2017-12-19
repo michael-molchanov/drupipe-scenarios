@@ -4,6 +4,3 @@ from:
 jobs:
   release-deploy-preprod:
     from: .params.jobs.release.deploy.preprod
-    env: preprod
-    source:
-      pattern: stable-*
