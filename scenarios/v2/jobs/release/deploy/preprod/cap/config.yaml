@@ -8,6 +8,6 @@ jobs:
     context:
       cap_environment: preprod
       cap_branch: BRANCH=${context.env.release}
-      cap_options: ""
+      cap_options: "--dry-run"
     source:
       pattern: stable-*
