@@ -6,7 +6,7 @@ jobs:
     from: params.jobs.release-deploy-prod
     env: prod
     context:
-      cap_environment: prod
+      cap_environment: production
       cap_branch: BRANCH=${context.env.release}
       cap_options: ""
     source:
