@@ -34,13 +34,13 @@ params:
     release-deploy-preprod:
       params:
         containers:
-        - from: .params.containers.common.artifact.${context.container_types.artifact.release-deploy-preprod.type}.release-deploy-preprod
-        - from: .params.containers.common.deploy.${context.container_types.deploy.release-deploy-preprod.type}.release-deploy-preprod
-        - from: .params.containers.common.operations.${context.container_types.operations.release-deploy-preprod.type}.release-deploy-preprod
+        - from: .params.containers.common.artifact.${context.container_types.artifact.release_deploy_preprod.type}.release-deploy-preprod
+        - from: .params.containers.common.deploy.${context.container_types.deploy.release_deploy_preprod.type}.release-deploy-preprod
+        - from: .params.containers.common.operations.${context.container_types.operations.release_deploy_preprod.type}.release-deploy-preprod
 
     release-deploy-prod:
       params:
         containers:
-        - from: .params.containers.common.artifact.${context.container_types.artifact.release-deploy-prod.type}.release-deploy-prod
-        - from: .params.containers.common.deploy.${context.container_types.deploy.release-deploy-prod.type}.release-deploy-prod
-        - from: .params.containers.common.operations.${context.container_types.operations.release-deploy-prod.type}.release-deploy-prod
+        - from: .params.containers.common.artifact.${context.container_types.artifact.release_deploy_prod.type}.release-deploy-prod
+        - from: .params.containers.common.deploy.${context.container_types.deploy.release_deploy_prod.type}.release-deploy-prod
+        - from: .params.containers.common.operations.${context.container_types.operations.release_deploy_prod.type}.release-deploy-prod
