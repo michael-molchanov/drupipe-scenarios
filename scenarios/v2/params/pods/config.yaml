@@ -29,7 +29,7 @@ params:
     release-build:
       params:
         containers:
-          - from: .params.containers.common.build.${context.container_types.build.release.type}.release
+          - from: .params.containers.common.build.${context.container_types.build.release-build.type}.release-build
 
     release-deploy-preprod:
       params:
