@@ -19,17 +19,19 @@ params:
           pods:
           - from: .params.pods.state.stable
 
-    release-build:
-      params:
-        pods:
-        - from: .params.pods.release-build
+    release:
+      build:
+        params:
+          pods:
+          - from: .params.pods.release.build
 
-    release-deploy-preprod:
-      params:
-        pods:
-        - from: .params.pods.release-deploy-preprod
+      deploy:
+        preprod:
+          params:
+            pods:
+            - from: .params.pods.release.deploy.preprod
 
-    release-deploy-prod:
-      params:
-        pods:
-        - from: .params.pods.release-deploy-prod
+        prod:
+          params:
+            pods:
+            - from: .params.pods.release.deploy.prod
