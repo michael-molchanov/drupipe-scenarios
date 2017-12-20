@@ -2,11 +2,7 @@
 params:
   containers:
     common:
-      params:
-        image: michaeltigr/zebra-build-php-drush-docman:0.0.87
       build:
-        params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.87
         deliverables:
           params:
             name: build-deliverables
@@ -20,8 +16,6 @@ params:
             - actions:
               - from: .params.actions.YamlFileHandler.build
       deploy:
-        params:
-          image: michaeltigr/zebra-deploy-ansible:2.3.2.0
         commands:
           params:
             name: deploy-commands
@@ -35,8 +29,6 @@ params:
             - actions:
               - from: .params.actions.Ansible.${context.environment}.deploy
       operations:
-        params:
-          image: michaeltigr/zebra-operations-druflow:0.1.4
         druflow:
           params:
             name: operations-druflow
@@ -56,8 +48,6 @@ params:
             - actions:
               - from: .params.actions.YamlFileHandler.${context.environment}.operations
       artifact:
-        params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.87
         git:
           params:
             name: artifact
