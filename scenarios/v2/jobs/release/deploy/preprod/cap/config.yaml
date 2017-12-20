@@ -4,10 +4,7 @@ from:
 jobs:
   release-deploy-preprod:
     from: .params.jobs.release.deploy.preprod
-    env: preprod
     context:
       cap_environment: preprod
       cap_branch: BRANCH=${release}
       cap_options: "--dry-run"
-    source:
-      pattern: stable-*
