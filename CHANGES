@@ -1,3 +1,84 @@
+Version 0.1.2:
+ - Merge pull request #16 from aroq/revert-15-revert-14-master
+ - Revert "Revert "WIP: Add images.""
+ - Merge pull request #15 from aroq/revert-14-master
+ - Revert "WIP: Add images."
+ - Merge pull request #14 from michael-molchanov/master
+ - Add images.
+ - Merge pull request #13 from michael-molchanov/master
+ - Cleanup.
+ - Re-use params, fix env for release preprod job
+ - Reuse params
+ - Merge pull request #12 from michael-molchanov/master
+ - Make scenarios more smooth.
+ - Add environment.
+ - Fix from import.
+ - Merge branch 'master' of github.com:aroq/drupipe-scenarios
+ - Fix cap env for prod
+ - Merge pull request #11 from michael-molchanov/master
+ - Fix release interpolation.
+ - Fix prerpod can env
+ - Merge branch 'master' of github.com:aroq/drupipe-scenarios
+ - Fix cap preprod env
+ - Merge pull request #10 from michael-molchanov/master
+ - Fix interpolation in from.
+ - Enable artifact containers for release deploy
+ - Disable artifact containers for release deploy
+ - Fix release deploy
+ - Fix release deploy
+ - Fix release deploy
+ - Fix release-deploy params
+ - Fix release-deploy params
+ - Add dry-run for preprod cap
+ - Change release to release-build for containers v2
+ - Merge pull request #8 from michael-molchanov/master
+ - Add deploy jobs.
+ - Add container types
+ - Add container_types
+ - Fixed Docman build
+ - Refactor scenarios
+ - Fix test type
+ - Add test container params
+ - Remove unneeded scenarios
+ - Fix job state params
+ - Fix state jobs params
+ - Fix deploy params
+ - Fix actions in blocks
+ - Remove unneeded scenarios
+ - Remove unneeded scenarios
+ - Remove unneeded scenarios
+ - Fix deploy container params
+ - Fix operation type
+ - Move containers into containers/config.yaml
+ - Add deploy container params
+ - Change operations container params
+ - Remove test params
+ - Fix v2/params/blocks
+ - Test changes
+ - Test changes
+ - Test changes
+ - Test changes
+ - Remove override from params.containers.operations
+ - Change block params
+ - Add jobs branch set to master in components master-to-staging
+ - Add context.environment to deploy.commands container
+ - Fix components master to staging
+ - Fix staging job & add components/master-to-stage
+ - Add commands deploy container
+ - Add state cap jobs
+ - Add operations-commands
+ - Fix format
+ - Merge pull request #7 from michael-molchanov/config-2
+ - Move jobs.
+ - Remove states.
+ - Fix
+ - Update config.
+ - Update config.
+ - Add base configs.
+ - Return gcloud auth
+ - Disable gcloud container
+ - Disable gcloud auth for tests
+
 Version 0.1.1:
  - Update config
  - Update config
