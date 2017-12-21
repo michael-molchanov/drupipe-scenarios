@@ -35,8 +35,8 @@ params:
 
     helm:
       params:
-        # pre_actions:
-          # - from: .params.actions.Helm.init
+        pre_actions:
+          - from: .params.actions.Helm.init
 
       status:
         params:
