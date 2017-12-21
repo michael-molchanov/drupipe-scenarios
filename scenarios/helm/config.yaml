@@ -122,7 +122,7 @@ params:
               containers:
                 - from: .params.containers.helm
                   blocks:
-                    - from: .params.blocks.helm.apply
+                    - from: .params.blocks.helm.${context.container_types.helm.apply.type}.apply
                     - from: .params.blocks.helm.status
 
                 - from: .params.containers.kubectl
