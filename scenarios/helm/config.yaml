@@ -125,10 +125,6 @@ params:
               - from: .params.blocks.helm.${context.container_types.helm.apply.type}.apply
               - from: .params.blocks.helm.status
 
-            - from: .params.containers.kubectl
-              blocks:
-              - from: .params.blocks.kubectl.pod-logs
-
       destroy:
         params:
           pods:
