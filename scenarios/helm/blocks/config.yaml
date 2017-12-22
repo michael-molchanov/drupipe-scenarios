@@ -45,7 +45,7 @@ params:
       apply:
         params:
           actions:
-          - from: .params.actions.Helm.apply.${context.container_types.helm.apply.type}
+          - from: .params.actions.Helm.${context.container_types.helm.apply.type}.apply
 
       destroy:
         params:
