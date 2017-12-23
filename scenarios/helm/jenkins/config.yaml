@@ -30,10 +30,6 @@ params:
           pods:
           - from: .params.pods.default
             containers:
-            - from: .params.containers.common
-              blocks:
-              - from: .params.blocks.healthcheck.wait-http-200
-
             - from: .params.containers.helm
               blocks:
               - from: .params.blocks.helm.${context.container_types.helm.apply.type}.apply
@@ -44,6 +40,9 @@ params:
               - from: .params.blocks.kubectl.rescale
               - from: .params.blocks.kubectl.status
 
+            - from: .params.containers.common
+              blocks:
+              - from: .params.blocks.healthcheck.wait-http-200
 
             - from: .params.containers.kubectl
               blocks:
