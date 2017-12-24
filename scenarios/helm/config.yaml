@@ -99,18 +99,10 @@ params:
             - from: .params.blocks.bump-stable
 
     helm:
-      params:
-        pre_pods:
-        - from: .params.pods.default
-          containers:
-          - from: .params.containers.gcloud
-            blocks:
-            - from: .params.blocks.gcloud.auth
-
       status:
         params:
           pods:
-          - from: .params.pods.default
+          - from: .params.pods.helm
             containers:
             - from: .params.containers.helm.status
             - from: .params.containers.kubectl.status
@@ -118,7 +110,7 @@ params:
       install:
         params:
           pods:
-          - from: .params.pods.default
+          - from: .params.pods.helm
             containers:
             - from: .params.containers.helm
               blocks:
@@ -128,9 +120,15 @@ params:
       destroy:
         params:
           pods:
-          - from: .params.pods.helm.destroy
+          - from: .params.pods.helm
   pods:
     helm:
+      params:
+        pre_containers:
+        - from: .params.containers.gcloud
+          blocks:
+          - from: .params.blocks.gcloud.auth
+
       destroy:
         params:
           containers:
