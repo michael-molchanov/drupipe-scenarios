@@ -14,7 +14,7 @@ params:
             pod_name: "${context.results.action.Kubectl_get_pod_name.stdout}"
             source_file_name: /var/jenkins_home/zebra/user_token
             destination: jenkins_user_token
-            post_process:
+            result_post_process:
               jenkins_user_token_file:
                 type: result
                 source: params.destination
