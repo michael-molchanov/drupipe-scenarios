@@ -5,68 +5,67 @@ params:
       rescale:
         params:
           actions:
-            - from: .params.actions.Kubectl.scale_down_up
+          - from: .params.actions.Kubectl.scale_down_up
 
       status:
         params:
           actions:
-            - from: .params.actions.Kubectl.get_pods
-            - from: .params.actions.Kubectl.get_loadbalancer_address
+          - from: .params.actions.Kubectl.get_pods
 
       pod-logs:
         params:
           actions:
-            - from: .params.actions.Kubectl.get_pod_name
-            - from: .params.actions.Kubectl.get_pod_logs
-              pod_name: "${context.results.action.Kubectl_get_pod_name.stdout}"
+          - from: .params.actions.Kubectl.get_pod_name
+          - from: .params.actions.Kubectl.get_pod_logs
+            pod_name: "${context.results.action.Kubectl_get_pod_name.stdout}"
 
     healthcheck:
       wait-http-200:
         params:
           actions:
-            - from: .params.actions.HealthCheck.wait_http_ok
-              url: ${context.results.action.Kubectl_get_loadbalancer_address.url}/login
+          - from: .params.actions.HealthCheck.wait_http_ok
+            url: ${context.results.action.Kubectl_get_loadbalancer_address.url}/login
 
     gcloud:
       auth:
         params:
           actions:
-            - from: .params.actions.GCloud.auth
+          - from: .params.actions.GCloud.auth
 
     helm:
       params:
-        # pre_actions:
-          # - from: .params.actions.Helm.init
+        pre_actions:
+        - from: .params.actions.Helm.init
 
       status:
         params:
           actions:
-            - from: .params.actions.Helm.status
+          - from: .params.actions.Helm.status
 
       apply:
         params:
           actions:
-            - from: .params.actions.Helm.apply
+          - from: .params.actions.Helm.${context.container_types.helm.apply.type}.apply
 
       destroy:
         params:
           actions:
-            - from: .params.actions.Helm.delete
+          - from: .params.actions.Helm.delete
 
     gitlab:
       accept-mr:
         params:
           actions:
-            - from: .params.actions.Gitlab.acceptMR
-              message: All tests passed.
+          - from: .params.actions.Gitlab.acceptMR
+            message: All tests passed.
 
     bump-stable:
       params:
         actions:
-          - from: .params.actions.Docman.bumpStable
+        - from: .params.actions.Docman.bumpStable
 
     get-stable-version:
       params:
         actions:
-          - from: .params.actions.Docman.getStable
-            dir: stable_version
+        - from: .params.actions.Docman.getStable
+          dir: stable_version

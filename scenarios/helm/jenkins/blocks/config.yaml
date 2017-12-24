@@ -2,22 +2,26 @@
 params:
   blocks:
     kubectl:
+      status:
+        params:
+          post_actions:
+          - from: .params.actions.Kubectl.get_loadbalancer_address
       copy-file:
         params:
           actions:
-            - from: .params.actions.Kubectl.get_pod_name
-            - from: .params.actions.Kubectl.copy_from_pod
-              pod_name: "${context.results.action.Kubectl_get_pod_name.stdout}"
-              source_file_name: /var/jenkins_home/zebra/user_token
-              destination: jenkins_user_token
-              post_process:
-                jenkins_user_token_file:
-                  type: result
-                  source: params.destination
-                  destination: context.jenkins.user_token_file
+          - from: .params.actions.Kubectl.get_pod_name
+          - from: .params.actions.Kubectl.copy_from_pod
+            pod_name: "${context.results.action.Kubectl_get_pod_name.stdout}"
+            source_file_name: /var/jenkins_home/zebra/user_token
+            destination: jenkins_user_token
+            result_post_process:
+              jenkins_user_token_file:
+                type: result
+                source: params.destination
+                destination: context.jenkins.user_token_file
 
-            - from: .params.actions.Shell.execute
-              shellCommand: cat ${context.jenkins.user_token_file}
+          - from: .params.actions.Shell.execute
+            shellCommand: cat ${context.jenkins.user_token_file}
 
     jenkins:
       test:

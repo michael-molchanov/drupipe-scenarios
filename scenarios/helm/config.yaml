@@ -92,49 +92,47 @@ params:
     bump_stable:
       params:
         pods:
-          - from: .params.pods.default
-            containers:
-              - from: .params.containers.common
-                blocks:
-                  - from: .params.blocks.bump-stable
+        - from: .params.pods.default
+          containers:
+          - from: .params.containers.common
+            blocks:
+            - from: .params.blocks.bump-stable
 
     helm:
-      params:
-        pre_pods:
-          - from: .params.pods.default
-            containers:
-              - from: .params.containers.gcloud
-                blocks:
-                  - from: .params.blocks.gcloud.auth
-
       status:
         params:
           pods:
-            - from: .params.pods.default
-              containers:
-                - from: .params.containers.helm.status
-                - from: .params.containers.kubectl.status
+          - from: .params.pods.helm
+            containers:
+            - from: .params.containers.helm.status
+            - from: .params.containers.kubectl.status
 
       install:
         params:
           pods:
-            - from: .params.pods.default
-              containers:
-                - from: .params.containers.helm
-                  blocks:
-                    - from: .params.blocks.helm.apply
-                    - from: .params.blocks.helm.status
-
-                - from: .params.containers.kubectl
-                  blocks:
-                    - from: .params.blocks.kubectl.pod-logs
+          - from: .params.pods.helm
+            containers:
+            - from: .params.containers.helm
+              blocks:
+              - from: .params.blocks.helm.${context.container_types.helm.apply.type}.apply
+              - from: .params.blocks.helm.status
 
       destroy:
         params:
           pods:
-            - from: .params.pods.default
-              containers:
-                - from: .params.containers.helm.destroy
+          - from: .params.pods.helm
+  pods:
+    helm:
+      params:
+        pre_containers:
+        - from: .params.containers.gcloud
+          blocks:
+          - from: .params.blocks.gcloud.auth
+
+      destroy:
+        params:
+          containers:
+          - from: .params.containers.helm.destroy
 
   containers:
     gcloud:

@@ -28,30 +28,30 @@ params:
       install_jenkins:
         params:
           pods:
-            - from: .params.pods.default
-              containers:
-                - from: .params.containers.helm
-                  blocks:
-                    - from: .params.blocks.helm.apply
-                    - from: .params.blocks.helm.status
+          - from: .params.pods.default
+            containers:
+            - from: .params.containers.helm
+              blocks:
+              - from: .params.blocks.helm.${context.container_types.helm.apply.type}.apply
+              - from: .params.blocks.helm.status
 
-                - from: .params.containers.kubectl
-                  blocks:
-                    - from: .params.blocks.kubectl.rescale
-                    - from: .params.blocks.kubectl.status
+            - from: .params.containers.kubectl
+              blocks:
+              - from: .params.blocks.kubectl.rescale
+              - from: .params.blocks.kubectl.status
 
-                - from: .params.containers.common
-                  blocks:
-                    - from: .params.blocks.healthcheck.wait-http-200
+            - from: .params.containers.common
+              blocks:
+              - from: .params.blocks.healthcheck.wait-http-200
 
-                - from: .params.containers.kubectl
-                  blocks:
-                    - from: .params.blocks.kubectl.pod-logs
-                    - from: .params.blocks.kubectl.copy-file
+            - from: .params.containers.kubectl
+              blocks:
+              - from: .params.blocks.kubectl.pod-logs
+              - from: .params.blocks.kubectl.copy-file
 
-                - from: .params.containers.jenkins-cli
-                  blocks:
-                    - from: .params.blocks.jenkins.test
+            - from: .params.containers.jenkins-cli
+              blocks:
+              - from: .params.blocks.jenkins.test
 
   containers:
     jenkins-cli:
