@@ -1,3 +1,7 @@
+Version 0.1.4:
+ - Merge branch 'develop'
+ - Fix helm destroy pod
+
 Version 0.1.3:
  - Merge branch 'develop'
  - Move gcloud auth in main pod
