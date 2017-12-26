@@ -5,7 +5,7 @@ params:
       status:
         params:
           post_actions:
-          - from: .params.actions.Kubectl.get_loadbalancer_address
+          - from: .params.actions.Kubectl.get_address_${context.k8s.jenkins.service_type}
       copy-file:
         params:
           actions:
