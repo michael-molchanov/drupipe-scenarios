@@ -24,7 +24,6 @@ params:
         params:
           actions:
           - from: .params.actions.HealthCheck.wait_http_ok
-            url: ${context.results.action.Kubectl_get_loadbalancer_address.url}/login
 
     gcloud:
       auth:
