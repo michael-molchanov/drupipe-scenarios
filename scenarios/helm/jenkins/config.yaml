@@ -57,4 +57,4 @@ params:
     jenkins-cli:
       params:
         name: jenkins-cli
-        image: michaeltigr/zebra-jenkins-cli
+        image: michaeltigr/zebra-jenkins-cli:2.73.2
