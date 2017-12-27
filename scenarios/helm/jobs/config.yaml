@@ -3,29 +3,23 @@ jobs:
   dev:
     from:
       - .params.jobs.folder.dev
-    # 'user_params' will be created as Jenkins job parameters in all child jobs.
-    # user_params:
-      # HELM_CHART_NAME: chart-name
+      - .params.jobs.folder.helm.general.install
     jobs:
       install:
         from:
-          - .params.jobs.common.helm.install
+          # - .params.jobs.common.helm.install
           - .params.jobs.gitlab.triggers.push.develop
           - .params.jobs.gitlab.webhooks.push
-
-      status:
-        from: .params.jobs.common.helm.status
-
-      destroy:
-        from: .params.jobs.common.helm.destroy
 
   preprod:
     from:
       - .params.jobs.folder.preprod
+      - .params.jobs.folder.helm.general.install
 
   prod:
     from:
       - .params.jobs.folder.prod
+      - .params.jobs.folder.helm.general.install
 
   merge-requests:
     from: .params.jobs.folder.mr

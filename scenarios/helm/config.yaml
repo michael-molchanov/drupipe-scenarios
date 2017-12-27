@@ -18,6 +18,21 @@ params:
         access_key_file_id: GCLOUD_ACCESS_KEY
 
   jobs:
+    folder:
+      helm:
+        general:
+          install:
+            params:
+              jobs:
+                status:
+                  from: .params.jobs.common.helm.status
+                install:
+                  from:
+                    - .params.jobs.common
+                  pipeline:
+                    from: .params.pipelines.helm.install
+                destroy:
+                  from: .params.jobs.common.helm.destroy
     common:
       bump_stable:
         params:
