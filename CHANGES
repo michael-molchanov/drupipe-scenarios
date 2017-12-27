@@ -1,3 +1,19 @@
+Version 0.1.5:
+ - Merge branch 'develop'
+ - Set version for jenkins-cli image
+ - Set version for jenkins-cli image
+ - Change jenkins-cli image
+ - Change jenkins-cli image
+ - Update jenkins-cli image
+ - Update jenkins address
+ - Update jenkins address
+ - Update jenkins address
+ - Change jenkins address params
+ - Remove url from wait 200 command
+ - Update jenkin get address action call
+ - Change LB get address
+ - Update helm params
+
 Version 0.1.4:
  - Merge branch 'develop'
  - Fix helm destroy pod
