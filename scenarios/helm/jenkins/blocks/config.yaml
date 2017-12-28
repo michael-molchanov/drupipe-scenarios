@@ -35,8 +35,9 @@ params:
             args: -s
             user: ${context.jenkins.username}
 
-          - from: .params.actions.Jenkins.seedTest
-            jenkins_address_host: ${context.k8s.address}
-            jenkins_user_token_file: ${context.jenkins.user_token_file}
-            args: -s
-            user: ${context.jenkins.username}
+          # TODO: Bring it back when all templates are fixed.
+          # - from: .params.actions.Jenkins.seedTest
+            # jenkins_address_host: ${context.k8s.address}
+            # jenkins_user_token_file: ${context.jenkins.user_token_file}
+            # args: -s
+            # user: ${context.jenkins.username}
