@@ -172,7 +172,7 @@ params:
     helm:
       params:
         name: kubectl
-        image: lachlanevenson/k8s-helm:v2.6.1
+        image: lachlanevenson/k8s-helm:v2.7.2
 
       status:
         params:
