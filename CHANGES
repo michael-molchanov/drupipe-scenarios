@@ -1,3 +1,6 @@
+Version 0.1.7:
+ - Disable seedTest for Jenkins temporary
+
 Version 0.1.6:
  - Update helm docker image version
 
