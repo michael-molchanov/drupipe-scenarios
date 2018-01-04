@@ -34,6 +34,12 @@ params:
             blocks:
             - actions:
               - from: .params.actions.Ansible.${context.environment}.deploy
+        ansible_git:
+          params:
+            name: deploy-ansible-git
+            blocks:
+            - actions:
+              - from: .params.actions.Ansible.${context.environment}.deployWithAnsistranoGit
       operations:
         params:
           image: michaeltigr/zebra-operations-druflow:0.1.4
