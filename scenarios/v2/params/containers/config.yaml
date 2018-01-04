@@ -3,10 +3,10 @@ params:
   containers:
     common:
       params:
-        image: michaeltigr/zebra-build-php-drush-docman:0.0.87
+        image: michaeltigr/zebra-build-php-drush-docman:0.0.89
       build:
         params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.87
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.89
         deliverables:
           params:
             name: build-deliverables
