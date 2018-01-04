@@ -1,3 +1,8 @@
+Version 0.1.8:
+ - Merge pull request #17 from michael-molchanov/master
+ - Docman 0.0.89.
+ - Ansible git.
+
 Version 0.1.7:
  - Disable seedTest for Jenkins temporary
 
