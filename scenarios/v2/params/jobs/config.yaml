@@ -1,6 +1,9 @@
 from:
   - v2/params/pipelines
 
+test:
+  param1: jobs
+
 params:
   jobs:
     state:

@@ -2,6 +2,9 @@
 from:
   - v2/params/containers
 
+test:
+  param1: pods
+
 params:
   pods:
     state:

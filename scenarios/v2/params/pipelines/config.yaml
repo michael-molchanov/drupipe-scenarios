@@ -2,6 +2,9 @@
 from:
   - v2/params/pods
 
+test:
+  param1: pipelines
+
 params:
   pipelines:
     state:
