@@ -63,7 +63,7 @@ params:
               - from: .params.actions.YamlFileHandler.${context.environment}.operations
       artifact:
         params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.87
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.89
         git:
           params:
             name: artifact
