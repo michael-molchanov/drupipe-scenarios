@@ -4,3 +4,5 @@ from:
 jobs:
   release-deploy-prod:
     from: .params.jobs.release.deploy.prod
+    context:
+      environment: prod

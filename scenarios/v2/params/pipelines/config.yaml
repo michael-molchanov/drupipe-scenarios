@@ -26,6 +26,16 @@ params:
           - from: .params.pods.release.build
 
       deploy:
+        dev:
+          params:
+            pods:
+              - from: .params.pods.release.deploy.dev
+
+        stage:
+          params:
+            pods:
+              - from: .params.pods.release.deploy.stage
+
         preprod:
           params:
             pods:

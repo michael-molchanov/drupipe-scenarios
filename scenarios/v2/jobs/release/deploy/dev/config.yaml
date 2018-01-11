@@ -1,0 +1,8 @@
+from:
+  - v2/params/jobs
+
+jobs:
+  release-deploy-dev:
+    from: .params.jobs.release.deploy.dev
+    context:
+      environment: dev

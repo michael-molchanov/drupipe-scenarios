@@ -7,6 +7,12 @@ params:
       build:
         params:
           image: michaeltigr/zebra-build-php-drush-docman:0.0.89
+        release:
+          params:
+            name: build-release
+            blocks:
+            - actions:
+              - from: .params.actions.Docman.${context.environment}.releaseBuild
         deliverables:
           params:
             name: build-deliverables
