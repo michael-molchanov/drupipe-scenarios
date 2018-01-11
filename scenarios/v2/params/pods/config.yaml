@@ -33,6 +33,20 @@ params:
             - from: .params.containers.common.build.${context.container_types.build.release.build.type}.release.build
 
       deploy:
+        dev:
+          params:
+            containers:
+              - from: .params.containers.common.artifact.${context.container_types.artifact.release.deploy.dev.type}.release.deploy.dev
+              - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.dev.type}.release.deploy.dev
+              - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.dev.type}.release.deploy.dev
+
+        stage:
+          params:
+            containers:
+              - from: .params.containers.common.artifact.${context.container_types.artifact.release.deploy.stage.type}.release.deploy.stage
+              - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.stage.type}.release.deploy.stage
+              - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.stage.type}.release.deploy.stage
+
         preprod:
           params:
             containers:
