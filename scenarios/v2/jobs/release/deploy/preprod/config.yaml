@@ -4,3 +4,5 @@ from:
 jobs:
   release-deploy-preprod:
     from: .params.jobs.release.deploy.preprod
+    context:
+      environment: preprod

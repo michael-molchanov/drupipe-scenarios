@@ -4,3 +4,5 @@ from:
 jobs:
   release-deploy-stage:
     from: .params.jobs.release.deploy.stage
+    context:
+      environment: stage

@@ -4,3 +4,5 @@ from:
 jobs:
   release-deploy-dev:
     from: .params.jobs.release.deploy.dev
+    context:
+      environment: dev
