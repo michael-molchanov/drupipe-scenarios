@@ -45,20 +45,22 @@ params:
             pattern: stable-*
 
         dev:
-          env: dev
-          source:
-            type: branches
-            pattern: develop
-          pipeline:
-            from: .params.pipelines.release.deploy.dev
+          params:
+            env: dev
+            source:
+              type: branches
+              pattern: develop
+            pipeline:
+              from: .params.pipelines.release.deploy.dev
 
         stage:
-          env: stage
-          source:
-            type: branches
-            pattern: staging
-          pipeline:
-            from: .params.pipelines.release.deploy.stage
+          params:
+            env: stage
+            source:
+              type: branches
+              pattern: staging
+            pipeline:
+              from: .params.pipelines.release.deploy.stage
 
         preprod:
           params:
