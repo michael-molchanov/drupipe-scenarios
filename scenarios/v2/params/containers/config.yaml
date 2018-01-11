@@ -10,9 +10,9 @@ params:
         release:
           params:
             name: build-release
-              blocks:
-              - actions:
-                - from: .params.actions.Docman.${context.environment}.releaseBuild
+            blocks:
+            - actions:
+              - from: .params.actions.Docman.${context.environment}.releaseBuild
         deliverables:
           params:
             name: build-deliverables
