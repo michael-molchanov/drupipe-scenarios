@@ -1,3 +1,14 @@
+Version 0.1.9:
+ - Merge pull request #19 from michael-molchanov/master
+ - Add params keyword.
+ - Fix yaml formatting.
+ - Define environments.
+ - Add release-build container, add release-deploy for dev and stage.
+ - Merge pull request #18 from michael-molchanov/master
+ - Docman 0.0.89.
+ - Revert "Add test params"
+ - Add test params
+
 Version 0.1.8:
  - Merge pull request #17 from michael-molchanov/master
  - Docman 0.0.89.
