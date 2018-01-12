@@ -7,6 +7,9 @@ params:
       build:
         params:
           image: michaeltigr/zebra-build-php-drush-docman:0.0.89
+        none:
+          params:
+           execute: false
         release:
           params:
             name: build-release
@@ -28,6 +31,9 @@ params:
       deploy:
         params:
           image: michaeltigr/zebra-deploy-ansible:2.3.2.0
+        none:
+          params:
+            execute: false
         commands:
           params:
             name: deploy-commands
@@ -49,6 +55,9 @@ params:
       operations:
         params:
           image: michaeltigr/zebra-operations-druflow:0.1.4
+        none:
+          params:
+            execute: false
         druflow:
           params:
             name: operations-druflow
@@ -70,6 +79,9 @@ params:
       artifact:
         params:
           image: michaeltigr/zebra-build-php-drush-docman:0.0.89
+        none:
+          params:
+            execute: false
         git:
           params:
             name: artifact
@@ -79,3 +91,7 @@ params:
                 artifactHandler:
                   handler: GitArtifact
                   method: retrieve
+      test:
+        none:
+          params:
+            execute: false
