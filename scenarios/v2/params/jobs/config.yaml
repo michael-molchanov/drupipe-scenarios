@@ -40,14 +40,17 @@ params:
 
         development:
           params:
+            state: development
             pattern: "develop"
 
         staging:
           params:
+            state: staging
             pattern: "staging"
 
         stable:
           params:
+            state: stable
             pattern: "stable--*"
 
       deploy:
