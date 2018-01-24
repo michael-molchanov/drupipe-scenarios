@@ -1,0 +1,20 @@
+params:
+  actions:
+    Commands:
+      deploy:
+        dev:
+          params:
+            actions:
+              - 'echo "Add git config."'
+              - 'git config --global user.email "zebraproject@adyax.com"'
+              - 'git config --global user.name "zebra"'
+              - 'echo "Init repo."'
+              - 'git init .'
+              - 'echo "Update origin."'
+              - 'git remote rm origin || true'
+              - 'git remote add -t develop -f origin ${context.components.master.repo}'
+              - 'echo "Update repo."'
+              - 'git checkout develop'
+              - 'git reset --hard origin/develop'
+              - 'git pull origin develop'
+              - 'git reset --hard origin/develop'
