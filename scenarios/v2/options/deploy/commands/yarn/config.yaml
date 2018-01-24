@@ -1,0 +1,18 @@
+params:
+  actions:
+    Commands:
+      deploy:
+        post_blocks:
+          dev:
+            params:
+              actions:
+                - 'yarn'
+                - 'yarn build'
+  containers:
+    common:
+      deploy:
+        commands:
+          params:
+            post_blocks:
+              - actions:
+                - from: .params.actions.Commands.deploy.post_blocks.${context.environment}.execute
