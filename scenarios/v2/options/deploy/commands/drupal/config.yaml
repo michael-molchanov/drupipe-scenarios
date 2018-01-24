@@ -1,0 +1,33 @@
+params:
+  actions:
+    Commands:
+      deploy:
+        pre_blocks:
+          dev:
+            params:
+              actions:
+                - 'if [ -d docroot/sites/default ]; then chmod 755 docroot/sites/default; fi'
+                - 'if [ -f docroot/sites/default/settings.php ]; then chmod 644 docroot/sites/default/settings.php; fi'
+                - 'if [ -d docroot/sites/default/files ]; then chmod 755 docroot/sites/default/files; fi'
+        post_blocks:
+          dev:
+            params:
+              actions:
+                - 'if [ -d docroot/sites/default ]; then chmod 755 docroot/sites/default; fi'
+                - 'if [ -d docroot/sites/default/services.yml ]; then chmod 644 docroot/sites/default/services.yml; fi'
+                - 'if [ -d docroot/sites/default/default.services.yml ]; then chmod 644 docroot/sites/default/default.services.yml; fi'
+                - 'if [ -d docroot/sites/default/settings.php ]; then chmod 644 docroot/sites/default/settings.php; fi'
+                - 'if [ -d docroot/sites/default/default.settings.php ]; then chmod 644 docroot/sites/default/default.settings.php; fi'
+                - 'composer install --prefer-dist'
+
+  containers:
+    common:
+      deploy:
+        commands:
+          params:
+            pre_blocks:
+              - actions:
+                - from: .params.actions.Commands.deploy.pre_blocks.${context.environment}.execute
+            post_blocks:
+              - actions:
+                - from: .params.actions.Commands.deploy.post_blocks.${context.environment}.execute
