@@ -6,9 +6,9 @@ params:
           dev:
             params:
               actions:
-                - '[ -d docroot/sites/default ] && chmod 755 docroot/sites/default'
-                - '[ -f docroot/sites/default/settings.php ] && chmod 644 docroot/sites/default/settings.php'
-                - '[ -d docroot/sites/default/files ] && chmod 755 docroot/sites/default/files'
+                - 'if [ -d docroot/sites/default ]; then chmod 755 docroot/sites/default; fi'
+                - 'if [ -f docroot/sites/default/settings.php ]; then chmod 644 docroot/sites/default/settings.php; fi'
+                - 'if [ -d docroot/sites/default/files ]; then chmod 755 docroot/sites/default/files; fi'
         post_blocks:
           dev:
             params:
