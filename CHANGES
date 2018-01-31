@@ -1,3 +1,35 @@
+Version 0.2.0:
+ - Merge pull request #26 from michael-molchanov/master
+ - Add states.
+ - Add release build state jobs.
+ - Add bump-stable job to v2 scenarios
+ - Merge branch 'master' of github.com:aroq/drupipe-scenarios
+ - Merge pull request #25 from michael-molchanov/master
+ - Docman 0.0.91
+ - Merge branch 'master' of github.com:aroq/drupipe-scenarios
+ - Merge pull request #24 from michael-molchanov/master
+ - Docman 0.0.90.
+ - Merge pull request #23 from michael-molchanov/patch-1
+ - Fix conditions, on false makes job failure.
+ - Merge pull request #22 from michael-molchanov/master
+ - Add yarn options.
+ - Merge pull request #21 from michael-molchanov/master
+ - Add deploy options.
+ - Merge branch 'master' of github.com:aroq/drupipe-scenarios
+ - Merge pull request #20 from michael-molchanov/master
+ - Do not execute none containers.
+
+Version 0.1.9:
+ - Merge pull request #19 from michael-molchanov/master
+ - Add params keyword.
+ - Fix yaml formatting.
+ - Define environments.
+ - Add release-build container, add release-deploy for dev and stage.
+ - Merge pull request #18 from michael-molchanov/master
+ - Docman 0.0.89.
+ - Revert "Add test params"
+ - Add test params
+
 Version 0.1.8:
  - Merge pull request #17 from michael-molchanov/master
  - Docman 0.0.89.
