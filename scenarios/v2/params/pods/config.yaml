@@ -58,7 +58,7 @@ params:
               - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.stage.type}.release.deploy.stage
               - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.stage.type}.release.deploy.stage
 
-         migrate:
+        migrate:
           params:
             containers:
               - from: .params.containers.common.artifact.${context.container_types.artifact.release.deploy.migrate.type}.release.deploy.migrate
