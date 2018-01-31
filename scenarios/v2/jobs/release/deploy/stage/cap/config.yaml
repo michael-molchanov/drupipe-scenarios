@@ -1,0 +1,10 @@
+from:
+  - v2/params/jobs
+
+jobs:
+  release-deploy-stage:
+    from: .params.jobs.release.deploy.stage
+    context:
+      cap_environment: stage
+      cap_branch: BRANCH=stage
+      cap_options: ""

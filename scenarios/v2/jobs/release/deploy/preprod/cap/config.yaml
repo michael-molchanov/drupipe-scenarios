@@ -7,4 +7,4 @@ jobs:
     context:
       cap_environment: preprod
       cap_branch: BRANCH=${release}
-      cap_options: "--dry-run"
+      cap_options: ""

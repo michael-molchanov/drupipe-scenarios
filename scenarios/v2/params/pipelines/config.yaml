@@ -9,10 +9,16 @@ params:
         params:
           pods:
           - from: .params.pods.state.development
+
       staging:
         params:
           pods:
           - from: .params.pods.state.staging
+
+      migrate:
+        params:
+          pods:
+          - from: .params.pods.state.migrate
 
       stable:
         params:
@@ -35,6 +41,11 @@ params:
           params:
             pods:
               - from: .params.pods.release.deploy.stage
+
+        migrate:
+          params:
+            pods:
+              - from: .params.pods.release.deploy.migrate
 
         preprod:
           params:
