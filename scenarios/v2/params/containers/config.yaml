@@ -95,3 +95,30 @@ params:
         none:
           params:
             execute: false
+      drush:
+        params:
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.91
+        drush:
+          params:
+            name: drush
+            blocks:
+            - actions:
+              - from: .params.actions.Drush.${context.environment}.runCommand
+        drush_features_list:
+          params:
+            name: drush_features_list
+            blocks:
+            - actions:
+              - from: .params.actions.DrushFeaturesList.${context.environment}.runCommand
+      opcache_reset:
+        params:
+          name: opcache_reset
+          blocks:
+          - actions:
+              - from: .params.actions.Commands.opcache_reset.${context.environment}.execute
+      redis:
+        params:
+          name: redis
+          blocks:
+          - actions:
+            - from: .params.actions.Commands.redis.${context.environment}.execute
