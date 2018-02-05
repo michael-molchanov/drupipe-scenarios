@@ -56,3 +56,12 @@ params:
           params:
             pods:
             - from: .params.pods.release.deploy.prod
+    test:
+      taurus:
+        params:
+          pods:
+            - from: .params.pods.test.taurus
+      vegeta:
+        params:
+          pods:
+            - from: .params.pods.test.vegeta

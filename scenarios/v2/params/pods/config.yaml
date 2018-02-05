@@ -78,3 +78,12 @@ params:
             - from: .params.containers.common.artifact.${context.container_types.artifact.release.deploy.prod.type}.release.deploy.prod
             - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.prod.type}.release.deploy.prod
             - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.prod.type}.release.deploy.prod
+    test:
+      taurus:
+        params:
+          containers:
+            - from: .params.containers.common.test.taurus
+      vegeta:
+        params:
+          containers:
+            - from: .params.containers.common.test.vegeta
