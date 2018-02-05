@@ -22,6 +22,14 @@ params:
           pipeline:
             from: .params.pipelines.state.staging
 
+      migrate:
+        params:
+          state: migrate
+          env: migrate
+          branch: migrate
+          pipeline:
+            from: .params.pipelines.state.migrate
+
       stable:
         params:
           state: stable
@@ -47,6 +55,11 @@ params:
           params:
             state: staging
             pattern: "staging"
+
+        migrate:
+          params:
+            state: migrate
+            pattern: "migrate"
 
         stable:
           params:
@@ -78,6 +91,15 @@ params:
             pipeline:
               from: .params.pipelines.release.deploy.stage
 
+        migrate:
+          params:
+            env: migrate
+            source:
+              type: branches
+              pattern: migrate
+            pipeline:
+              from: .params.pipelines.release.deploy.migrate
+
         preprod:
           params:
             env: preprod
@@ -89,3 +111,34 @@ params:
             env: prod
             pipeline:
               from: .params.pipelines.release.deploy.prod
+    test:
+      taurus:
+        params:
+          type: common
+          params:
+            taurus_config: ""
+            taurus_args: ""
+            taurus_concurrency: "1"
+            taurus_hold_for: "10"
+            taurus_ramp_up: "1"
+            taurus_throughput: "1"
+            taurus_steps: "1"
+          pipeline:
+            from: .params.pipelines.test.taurus
+      vegeta:
+        params:
+          type: common
+          params:
+            vegeta_prepare_command: ""
+            vegeta_args: ""
+            vegeta_connections: ""
+            vegeta_duration: "10s"
+            vegeta_redirects: ""
+            vegeta_rate: "1"
+            vegeta_timeout: ""
+            vegeta_workers: ""
+            vegeta_insecure: ""
+            vegeta_keepalive: ""
+            vegeta_lazy: ""
+          pipeline:
+            from: .params.pipelines.test.vegeta

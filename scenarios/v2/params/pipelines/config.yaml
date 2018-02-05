@@ -9,10 +9,16 @@ params:
         params:
           pods:
           - from: .params.pods.state.development
+
       staging:
         params:
           pods:
           - from: .params.pods.state.staging
+
+      migrate:
+        params:
+          pods:
+          - from: .params.pods.state.migrate
 
       stable:
         params:
@@ -36,6 +42,11 @@ params:
             pods:
               - from: .params.pods.release.deploy.stage
 
+        migrate:
+          params:
+            pods:
+              - from: .params.pods.release.deploy.migrate
+
         preprod:
           params:
             pods:
@@ -45,3 +56,12 @@ params:
           params:
             pods:
             - from: .params.pods.release.deploy.prod
+    test:
+      taurus:
+        params:
+          pods:
+            - from: .params.pods.test.taurus
+      vegeta:
+        params:
+          pods:
+            - from: .params.pods.test.vegeta

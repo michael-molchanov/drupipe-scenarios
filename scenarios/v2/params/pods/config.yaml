@@ -13,6 +13,7 @@ params:
           - from: .params.containers.common.deploy.${context.container_types.deploy.development.type}.development
           - from: .params.containers.common.operations.${context.container_types.operations.development.type}.development
           - from: .params.containers.common.test.${context.container_types.test.development.type}.development
+
       staging:
         params:
           containers:
@@ -21,6 +22,16 @@ params:
           - from: .params.containers.common.deploy.${context.container_types.deploy.staging.type}.staging
           - from: .params.containers.common.operations.${context.container_types.operations.staging.type}.staging
           - from: .params.containers.common.test.${context.container_types.test.staging.type}.staging
+
+      migrate:
+        params:
+          containers:
+          - from: .params.containers.common.build.${context.container_types.build.migrate.type}.migrate
+          - from: .params.containers.common.artifact.${context.container_types.artifact.migrate.type}.migrate
+          - from: .params.containers.common.deploy.${context.container_types.deploy.migrate.type}.migrate
+          - from: .params.containers.common.operations.${context.container_types.operations.migrate.type}.migrate
+          - from: .params.containers.common.test.${context.container_types.test.migrate.type}.migrate
+
       stable:
         params:
           containers:
@@ -47,6 +58,13 @@ params:
               - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.stage.type}.release.deploy.stage
               - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.stage.type}.release.deploy.stage
 
+        migrate:
+          params:
+            containers:
+              - from: .params.containers.common.artifact.${context.container_types.artifact.release.deploy.migrate.type}.release.deploy.migrate
+              - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.migrate.type}.release.deploy.migrate
+              - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.migrate.type}.release.deploy.migrate
+
         preprod:
           params:
             containers:
@@ -60,3 +78,12 @@ params:
             - from: .params.containers.common.artifact.${context.container_types.artifact.release.deploy.prod.type}.release.deploy.prod
             - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.prod.type}.release.deploy.prod
             - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.prod.type}.release.deploy.prod
+    test:
+      taurus:
+        params:
+          containers:
+            - from: .params.containers.common.test.taurus
+      vegeta:
+        params:
+          containers:
+            - from: .params.containers.common.test.vegeta

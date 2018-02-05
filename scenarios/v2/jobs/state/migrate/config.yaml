@@ -1,0 +1,8 @@
+from:
+  - v2/params/jobs
+
+jobs:
+  state-migrate:
+    from: .params.jobs.state.migrate
+    context:
+      environment: migrate

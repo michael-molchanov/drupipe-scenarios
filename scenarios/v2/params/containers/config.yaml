@@ -95,3 +95,45 @@ params:
         none:
           params:
             execute: false
+        taurus:
+          params:
+            name: taurus
+            image: michaeltigr/zebra-jmeter-taurus:1.10.4-travis
+            blocks:
+            - actions:
+              - from: .params.actions.TaurusTester.${context.environment}.tets
+        vegeta:
+          params:
+            name: vegeta
+            image: michaeltigr/zebra-vegeta:6.3.0
+            blocks:
+            - actions:
+              - from: .params.actions.VegetaTester.${context.environmt}.preprare
+                from: .params.actions.VegetaTester.${context.environmt}.test
+      drush:
+        params:
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.91
+        drush:
+          params:
+            name: drush
+            blocks:
+            - actions:
+              - from: .params.actions.Drush.${context.environment}.runCommand
+        drush_features_list:
+          params:
+            name: drush_features_list
+            blocks:
+            - actions:
+              - from: .params.actions.DrushFeaturesList.${context.environment}.runCommand
+      opcache_reset:
+        params:
+          name: opcache_reset
+          blocks:
+          - actions:
+              - from: .params.actions.Commands.opcache_reset.${context.environment}.execute
+      redis:
+        params:
+          name: redis
+          blocks:
+          - actions:
+            - from: .params.actions.Commands.redis.${context.environment}.execute
