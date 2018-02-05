@@ -1,3 +1,14 @@
+Version 0.2.1:
+ - Merge pull request #27 from michael-molchanov/master
+ - Test containers.
+ - Add drush, redis, opcache.
+ - Merge branch 'master' of github.com:michael-molchanov/drupipe-scenarios
+ - Add migrate state jobs.
+ - Update config.yaml
+ - Merge branch 'master' of github.com:aroq/drupipe-scenarios
+ - Fix check flag.
+ - Add npm install options.
+
 Version 0.2.0:
  - Merge pull request #26 from michael-molchanov/master
  - Add states.
