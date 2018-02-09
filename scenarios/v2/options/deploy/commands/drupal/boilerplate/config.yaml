@@ -47,8 +47,8 @@ params:
               - ${context.servers[context.environment].user}@${context.servers[context.environment].host}
             execution_dir: /var/www/stage/current/docroot
         preprod:
-            params:
-              through_ssh_chain:
+          params:
+            through_ssh_chain:
               - ${context.servers[context.environment].user}@${context.servers[context.environment].host}
             execution_dir: /var/www/preprod/current/docroot
         prod:
