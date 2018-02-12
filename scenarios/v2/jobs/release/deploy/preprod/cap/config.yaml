@@ -1,9 +1,8 @@
 from:
-  - v2/params/jobs
+  - v2/jobs/release/deploy/preprod
 
 jobs:
   release-deploy-preprod:
-    from: .params.jobs.release.deploy.preprod
     context:
       cap_environment: preprod
       cap_branch: BRANCH=${release}

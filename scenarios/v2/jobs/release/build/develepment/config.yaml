@@ -4,3 +4,5 @@ from:
 jobs:
   release-build-development:
     from: .params.jobs.release.build.development
+    context:
+      environment: dev

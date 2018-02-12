@@ -1,10 +1,9 @@
 ---
 from:
-  - v2/params/jobs
+  - v2/jobs/state/staging
 
 jobs:
   state-staging:
-    from: .params.jobs.state.staging
     context:
       cap_environment: staging
       cap_branch: BRANCH=staging

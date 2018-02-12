@@ -4,3 +4,5 @@ from:
 jobs:
   release-build-stable:
     from: .params.jobs.release.build.stable
+    context:
+      environment: prod

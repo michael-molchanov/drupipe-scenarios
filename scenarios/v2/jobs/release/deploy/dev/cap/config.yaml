@@ -1,9 +1,8 @@
 from:
-  - v2/params/jobs
+  - v2/jobs/release/deploy/dev
 
 jobs:
   release-deploy-dev:
-    from: .params.jobs.release.deploy.dev
     context:
       cap_environment: develop
       cap_branch: BRANCH=develop

@@ -1,9 +1,8 @@
 from:
-  - v2/params/jobs
+  - v2/jobs/release/deploy/stage
 
 jobs:
   release-deploy-stage:
-    from: .params.jobs.release.deploy.stage
     context:
       cap_environment: stage
       cap_branch: BRANCH=stage
