@@ -1,70 +1,14 @@
+from:
+  - v2/options/deploy/commands/drupal/composer
+
 params:
   actions:
     Commands:
       deploy:
         dev:
           params:
-            through_ssh_chain:
-              - ${context.servers[context.environment].user}@${context.servers[context.environment].host}
-            execution_dir: /var/www/dev/current
             actions:
               - 'echo "Add shared files."'
-              - 'ln -sfn /var/www/dev/shared/docroot/sites/default/files /var/www/dev/current/docroot/sites/default/files'
+              - 'ln -sfn ${context.environments[context.environment].root}/shared/docroot/sites/default/files ${context.environments[context.environment].root}/current/docroot/sites/default/files'
               - 'echo "Set environment."'
-              - 'ln -sfn /var/www/dev/shared/environments/env.settings.php /var/www/dev/current/environments/env.settings.php'
-        pre_blocks:
-          dev:
-            params:
-              through_ssh_chain:
-                - ${context.servers[context.environment].user}@${context.servers[context.environment].host}
-              execution_dir: /var/www/dev/current
-              actions:
-                - 'if [ -d docroot/sites/default ]; then chmod 755 docroot/sites/default; fi'
-                - 'if [ -f docroot/sites/default/settings.php ]; then chmod 644 docroot/sites/default/settings.php; fi'
-                - 'if [ -d docroot/sites/default/files ]; then chmod 755 docroot/sites/default/files; fi'
-        post_blocks:
-          dev:
-            params:
-              through_ssh_chain:
-                - ${context.servers[context.environment].user}@${context.servers[context.environment].host}
-              execution_dir: /var/www/dev/current
-              actions:
-                - 'if [ -d docroot/sites/default ]; then chmod 755 docroot/sites/default; fi'
-                - 'if [ -f docroot/sites/default/services.yml ]; then chmod 644 docroot/sites/default/services.yml; fi'
-                - 'if [ -f docroot/sites/default/default.services.yml ]; then chmod 644 docroot/sites/default/default.services.yml; fi'
-                - 'if [ -f docroot/sites/default/settings.php ]; then chmod 644 docroot/sites/default/settings.php; fi'
-                - 'if [ -f docroot/sites/default/default.settings.php ]; then chmod 644 docroot/sites/default/default.settings.php; fi'
-                - 'composer install --prefer-dist --optimize-autoloader'
-      operations:
-        dev:
-          params:
-            through_ssh_chain:
-              - ${context.servers[context.environment].user}@${context.servers[context.environment].host}
-            execution_dir: /var/www/dev/current/docroot
-        stage:
-          params:
-            through_ssh_chain:
-              - ${context.servers[context.environment].user}@${context.servers[context.environment].host}
-            execution_dir: /var/www/stage/current/docroot
-        preprod:
-          params:
-            through_ssh_chain:
-              - ${context.servers[context.environment].user}@${context.servers[context.environment].host}
-            execution_dir: /var/www/preprod/current/docroot
-        prod:
-          params:
-            through_ssh_chain:
-              - ${context.servers[context.environment].user}@${context.servers[context.environment].host}
-            execution_dir: /var/www/prod/current/docroot
-
-  containers:
-    common:
-      deploy:
-        commands:
-          params:
-            pre_blocks:
-              - actions:
-                - from: .params.actions.Commands.deploy.pre_blocks.${context.environment}.execute
-            post_blocks:
-              - actions:
-                - from: .params.actions.Commands.deploy.post_blocks.${context.environment}.execute
+              - 'ln -sfn ${context.environments[context.environment].root}/shared/environments/env.settings.php ${context.environments[context.environment].root}/current/environments/env.settings.php'
