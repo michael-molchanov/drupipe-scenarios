@@ -1,10 +1,9 @@
 ---
 from:
-  - v2/params/jobs
+  - v2/jobs/state/migrate
 
 jobs:
   state-migrate:
-    from: .params.jobs.state.migrate
     context:
       cap_environment: migrate
       cap_branch: BRANCH=migrate

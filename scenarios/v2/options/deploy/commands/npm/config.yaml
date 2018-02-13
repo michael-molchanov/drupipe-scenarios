@@ -1,3 +1,6 @@
+from:
+  - v2/options/deploy/commands
+
 params:
   actions:
     Commands:
@@ -10,6 +13,10 @@ params:
                 - 'npm run build'
   containers:
     common:
+      build:
+        params:
+          from:
+            - .params.options.containers.build.tools
       deploy:
         commands:
           params:

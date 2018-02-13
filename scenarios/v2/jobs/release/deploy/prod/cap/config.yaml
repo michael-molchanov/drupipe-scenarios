@@ -1,9 +1,8 @@
 from:
-  - v2/params/jobs
+  - v2/jobs/release/deploy/prod
 
 jobs:
   release-deploy-prod:
-    from: .params.jobs.release.deploy.prod
     context:
       cap_environment: production
       cap_branch: BRANCH=${context.env.release}

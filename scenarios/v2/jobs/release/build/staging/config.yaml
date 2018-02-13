@@ -4,3 +4,5 @@ from:
 jobs:
   release-build-staging:
     from: .params.jobs.release.build.staging
+    context:
+      environment: stage

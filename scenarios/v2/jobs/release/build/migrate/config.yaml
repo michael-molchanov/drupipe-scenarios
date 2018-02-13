@@ -4,3 +4,5 @@ from:
 jobs:
   release-build-migrate:
     from: .params.jobs.release.build.migrate
+    context:
+      environment: migrate
