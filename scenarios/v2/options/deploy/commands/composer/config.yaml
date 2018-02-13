@@ -9,14 +9,9 @@ params:
           dev:
             params:
               actions:
-                - 'yarn'
-                - 'yarn build'
+                - 'composer install --prefer-dist --optimize-autoloader'
   containers:
     common:
-      build:
-        params:
-          from:
-            - .params.options.containers.build.tools
       deploy:
         commands:
           params:
