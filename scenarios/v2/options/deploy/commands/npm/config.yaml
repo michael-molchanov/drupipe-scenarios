@@ -13,6 +13,10 @@ params:
                 - 'npm run build'
   containers:
     common:
+      build:
+        params:
+          from:
+            - .params.options.containers.build.tools
       deploy:
         commands:
           params:
