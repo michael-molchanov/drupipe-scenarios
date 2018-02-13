@@ -1,10 +1,12 @@
+project_subdirectory: ""
+
 params:
   actions:
     Commands:
       params:
         through_ssh_chain:
           - ${context.servers[context.environment].user}@${context.servers[context.environment].host}
-        execution_dir: ${context.environments[context.environment].root}/current
+        execution_dir: ${context.environments[context.environment].root}/current/${context.project_subdirectory}
       deploy:
         dev:
           params:
