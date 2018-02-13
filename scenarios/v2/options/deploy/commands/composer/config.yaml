@@ -10,3 +10,11 @@ params:
             params:
               actions:
                 - 'composer install --prefer-dist --optimize-autoloader'
+  containers:
+    common:
+      deploy:
+        commands:
+          params:
+            post_blocks:
+              - actions:
+                - from: .params.actions.Commands.deploy.post_blocks.${context.environment}.execute
