@@ -1,3 +1,18 @@
+Version 0.2.3:
+ - Merge branch 'master' of github.com:aroq/drupipe-scenarios
+ - Merge pull request #30 from michael-molchanov/master
+ - Drupal commands.
+ - Use tools image.
+ - Add composer post block.
+ - Add composer deploy commands.
+ - Add project subdirectory support.
+ - Reorganize jobs.
+ - Fix cycle loading.
+ - Jobs inheritance.
+ - Reorganize structure.
+ - Merge pull request #29 from michael-molchanov/master
+ - Fix formatting.
+
 Version 0.2.2:
  - Merge branch 'master' of github.com:aroq/drupipe-scenarios
  - Merge pull request #28 from michael-molchanov/master
