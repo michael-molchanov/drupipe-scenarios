@@ -130,7 +130,7 @@ params:
           name: opcache_reset
           blocks:
           - actions:
-              - from: .params.actions.Commands.opcache_reset.${context.environment}.execute
+            - from: .params.actions.Commands.opcache_reset.${context.environment}.execute
       redis:
         params:
           name: redis
