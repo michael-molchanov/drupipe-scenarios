@@ -1,0 +1,10 @@
+from:
+  - v2/params/jobs
+  - v2/options/backmerge/master
+
+jobs:
+  backmerge-master:
+    from: .params.jobs.backmerge
+    branch: config
+    context:
+      environment: prod

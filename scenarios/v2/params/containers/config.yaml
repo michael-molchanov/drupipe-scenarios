@@ -137,3 +137,10 @@ params:
           blocks:
           - actions:
             - from: .params.actions.Commands.redis.${context.environment}.execute
+      backmerge:
+        params:
+          name: backmerge
+          blocks:
+          - actions:
+            - from: .params.actions.Commands.backmerge.${context.environment}.execute
+
