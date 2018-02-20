@@ -15,9 +15,9 @@ params:
               - git config --global user.name 'zebra'
               - git init .
               - git remote add origin ${context.components.master.repo}
-              - 'git fetch origin ${context.components.master.states.staging.version ? context.components.master.states.staging.version : "staging"} --tags'
+              - 'git fetch origin ${context.components.master.states.staging.version ? context.components.master.states.staging.version : "staging"}'
               - 'git checkout ${context.components.master.states.staging.version ? context.components.master.states.staging.version : "staging"}'
-              - 'git fetch origin ${context.components.master.states.development.version ? context.components.master.states.development.version : "develop"} --tags'
+              - 'git fetch origin ${context.components.master.states.development.version ? context.components.master.states.development.version : "develop"}'
               - 'git checkout ${context.components.master.states.development.version ? context.components.master.states.development.version : "develop"}'
               - 'git merge ${context.components.master.states.staging.version ? context.components.master.states.staging.version : "staging"} --ff'
               - 'git push origin ${context.components.master.states.development.version ? context.components.master.states.development.version : "develop"}'
