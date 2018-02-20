@@ -87,3 +87,8 @@ params:
         params:
           containers:
             - from: .params.containers.common.test.vegeta
+    backmerge:
+      params:
+        containers:
+          - from: .params.containers.common.backmerge
+

@@ -1,0 +1,23 @@
+params:
+  actions:
+    Commands:
+      backmerge:
+        prod:
+          params:
+            through_ssh_chain: null
+            execution_dir: .
+            store_result: false
+            actions:
+              - rm -rf docroot/master
+              - mkdir -p docroot/master
+              - cd docroot/master
+              - git config --global user.email 'zebraproject@adyax.com'
+              - git config --global user.name 'zebra'
+              - git init .
+              - git remote add origin ${context.components.master.repo}
+              - 'git fetch origin ${context.components.master.states.stable.type == "branch" ? context.components.master.states.stable.version : "master"}'
+              - 'git checkout ${context.components.master.states.stable.type == "branch" ? context.components.master.states.stable.version : "master"}'
+              - 'git fetch origin ${context.components.master.states.staging.version ? context.components.master.states.staging.version : "staging"}'
+              - 'git checkout ${context.components.master.states.staging.version ? context.components.master.states.staging.version : "staging"}'
+              - 'git merge ${context.components.master.states.stable.type == "branch" ? context.components.master.states.stable.version : "master"} --ff'
+              - 'git push origin ${context.components.master.states.staging.version ? context.components.master.states.staging.version : "staging"}'

@@ -142,3 +142,9 @@ params:
             vegeta_lazy: ""
           pipeline:
             from: .params.pipelines.test.vegeta
+    backmerge:
+      params:
+        type: common
+        pipeline:
+          from: .params.pipelines.backmerge
+

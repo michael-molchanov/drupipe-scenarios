@@ -3,10 +3,10 @@ params:
   containers:
     common:
       params:
-        image: michaeltigr/zebra-build-php-drush-docman:0.0.91
+        image: michaeltigr/zebra-build-php-drush-docman:0.0.92
       build:
         params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.91
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.92
         none:
           params:
            execute: false
@@ -78,7 +78,7 @@ params:
               - from: .params.actions.YamlFileHandler.${context.environment}.operations
       artifact:
         params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.91
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.92
         none:
           params:
             execute: false
@@ -112,7 +112,7 @@ params:
                 from: .params.actions.VegetaTester.${context.environmt}.test
       drush:
         params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.91
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.92
         drush:
           params:
             name: drush
@@ -130,10 +130,17 @@ params:
           name: opcache_reset
           blocks:
           - actions:
-              - from: .params.actions.Commands.opcache_reset.${context.environment}.execute
+            - from: .params.actions.Commands.opcache_reset.${context.environment}.execute
       redis:
         params:
           name: redis
           blocks:
           - actions:
             - from: .params.actions.Commands.redis.${context.environment}.execute
+      backmerge:
+        params:
+          name: backmerge
+          blocks:
+          - actions:
+            - from: .params.actions.Commands.backmerge.${context.environment}.execute
+

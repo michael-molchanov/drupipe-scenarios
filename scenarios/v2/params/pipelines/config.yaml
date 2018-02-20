@@ -65,3 +65,8 @@ params:
         params:
           pods:
             - from: .params.pods.test.vegeta
+    backmerge:
+      params:
+        pods:
+          - from: .params.pods.backmerge
+
