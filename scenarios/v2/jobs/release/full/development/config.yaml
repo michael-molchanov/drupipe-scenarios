@@ -1,0 +1,9 @@
+from:
+  - v2/params/jobs
+
+jobs:
+  release-development:
+    from: .params.jobs.release.full.development
+    context:
+      environment: develop
+

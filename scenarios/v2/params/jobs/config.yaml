@@ -39,6 +39,20 @@ params:
             from: .params.pipelines.state.stable
 
     release:
+      full:
+        params:
+          type: release-build
+          pattern: "*"
+        development:
+          params:
+            state: development
+            pipelines:
+              from: .params.pipelines.release.full.development
+        staging:
+          params:
+            state: staging
+            pipelines:
+              from: .params.pipelines.release.full.staging
       build:
         params:
           type: release-build
