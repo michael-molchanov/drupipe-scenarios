@@ -1,3 +1,9 @@
+Version 0.2.5:
+ - Merge pull request #32 from michael-molchanov/master
+ - Add git cleanup.
+ - Fix script path.
+ - Add full release jobs.
+
 Version 0.2.4:
  - Merge pull request #31 from michael-molchanov/master
  - Remove tags fetch.
