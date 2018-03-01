@@ -22,5 +22,7 @@ params:
               - 'echo "Update repo."'
               - 'git checkout develop'
               - 'git reset --hard origin/develop'
+              - 'git clean -f -d -x'
               - 'git pull origin develop'
               - 'git reset --hard origin/develop'
+              - 'git clean -f -d -x'
