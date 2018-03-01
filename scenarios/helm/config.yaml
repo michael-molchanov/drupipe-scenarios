@@ -8,8 +8,6 @@ tags:
   - single
   - helm
 
-pipeline_script_full: Jenkinsfile
-
 params:
   actions:
     GCloud:

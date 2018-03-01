@@ -26,10 +26,19 @@ params:
           - from: .params.pods.state.stable
 
     release:
+      full:
+        development:
+          params:
+            pods:
+              - from: .params.pods.release.full.development
+        staging:
+          params:
+            pods:
+              - from: .params.pods.release.full.staging
       build:
         params:
           pods:
-          - from: .params.pods.release.build
+            - from: .params.pods.release.build
 
       deploy:
         dev:

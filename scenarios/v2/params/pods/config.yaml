@@ -38,6 +38,23 @@ params:
           - from: .params.containers.common.build.${context.container_types.build.stable.type}.stable
 
     release:
+      full:
+        development:
+          params:
+            containers:
+            - from: .params.containers.common.build.${context.container_types.build.release.full.development.type}.release.full.development
+            - from: .params.containers.common.artifact.${context.container_types.artifact.release.full.development.type}.release.full.development
+            - from: .params.containers.common.deploy.${context.container_types.deploy.release.full.development.type}.release.full.development
+            - from: .params.containers.common.operations.${context.container_types.operations.release.full.development.type}.release.full.development
+            - from: .params.containers.common.test.${context.container_types.test.release.full.development.type}.release.full.development
+        staging:
+          params:
+            containers:
+            - from: .params.containers.common.build.${context.container_types.build.release.full.staging.type}.release.full.staging
+            - from: .params.containers.common.artifact.${context.container_types.artifact.release.full.staging.type}.release.full.staging
+            - from: .params.containers.common.deploy.${context.container_types.deploy.release.full.staging.type}.release.full.staging
+            - from: .params.containers.common.operations.${context.container_types.operations.release.full.staging.type}.release.full.staging
+            - from: .params.containers.common.test.${context.container_types.test.release.full.staging.type}.release.full.staging
       build:
         params:
           containers:
@@ -50,6 +67,7 @@ params:
               - from: .params.containers.common.artifact.${context.container_types.artifact.release.deploy.dev.type}.release.deploy.dev
               - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.dev.type}.release.deploy.dev
               - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.dev.type}.release.deploy.dev
+              - from: .params.containers.common.test.${context.container_types.test.release.deploy.dev.type}.release.deploy.dev
 
         stage:
           params:
@@ -57,6 +75,7 @@ params:
               - from: .params.containers.common.artifact.${context.container_types.artifact.release.deploy.stage.type}.release.deploy.stage
               - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.stage.type}.release.deploy.stage
               - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.stage.type}.release.deploy.stage
+              - from: .params.containers.common.test.${context.container_types.test.release.deploy.stage.type}.release.deploy.stage
 
         migrate:
           params:
@@ -64,6 +83,7 @@ params:
               - from: .params.containers.common.artifact.${context.container_types.artifact.release.deploy.migrate.type}.release.deploy.migrate
               - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.migrate.type}.release.deploy.migrate
               - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.migrate.type}.release.deploy.migrate
+              - from: .params.containers.common.test.${context.container_types.test.release.deploy.migrate.type}.release.deploy.migrate
 
         preprod:
           params:
@@ -71,6 +91,7 @@ params:
             - from: .params.containers.common.artifact.${context.container_types.artifact.release.deploy.preprod.type}.release.deploy.preprod
             - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.preprod.type}.release.deploy.preprod
             - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.preprod.type}.release.deploy.preprod
+            - from: .params.containers.common.test.${context.container_types.test.release.deploy.preprod.type}.release.deploy.preprod
 
         prod:
           params:
@@ -78,6 +99,8 @@ params:
             - from: .params.containers.common.artifact.${context.container_types.artifact.release.deploy.prod.type}.release.deploy.prod
             - from: .params.containers.common.deploy.${context.container_types.deploy.release.deploy.prod.type}.release.deploy.prod
             - from: .params.containers.common.operations.${context.container_types.operations.release.deploy.prod.type}.release.deploy.prod
+            - from: .params.containers.common.test.${context.container_types.test.release.deploy.prod.type}.release.deploy.prod
+
     test:
       taurus:
         params:
