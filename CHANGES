@@ -1,3 +1,8 @@
+Version 0.2.6:
+ - Merge pull request #33 from michael-molchanov/master
+ - Merge branch 'master' of github.com:aroq/drupipe-scenarios
+ - Keep 5 logs for prod deploy job.
+
 Version 0.2.5:
  - Merge pull request #32 from michael-molchanov/master
  - Add git cleanup.
