@@ -6,3 +6,4 @@ jobs:
     from: .params.jobs.release.deploy.prod
     context:
       environment: prod
+      logRotatorNumToKeep: 5
