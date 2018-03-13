@@ -46,12 +46,12 @@ params:
         development:
           params:
             state: development
-            pipelines:
+            pipeline:
               from: .params.pipelines.release.full.development
         staging:
           params:
             state: staging
-            pipelines:
+            pipeline:
               from: .params.pipelines.release.full.staging
       build:
         params:
