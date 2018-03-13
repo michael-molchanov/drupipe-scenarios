@@ -1,3 +1,8 @@
+Version 0.2.7:
+ - Merge branch 'master' of github.com:aroq/drupipe-scenarios
+ - Merge pull request #34 from michael-molchanov/master
+ - Fix pipeline missspelling.
+
 Version 0.2.6:
  - Merge pull request #33 from michael-molchanov/master
  - Merge branch 'master' of github.com:aroq/drupipe-scenarios
