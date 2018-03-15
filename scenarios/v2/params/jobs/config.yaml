@@ -78,7 +78,6 @@ params:
         stable:
           params:
             state: stable
-            pattern: "stable--*"
 
       deploy:
         params:
