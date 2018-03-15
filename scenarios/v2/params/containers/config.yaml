@@ -52,6 +52,12 @@ params:
             blocks:
             - actions:
               - from: .params.actions.Ansible.${context.environment}.deployWithAnsistranoGit
+        platformsh:                                                                                                                                                                                      
+          params:                                                                                                                                                                                        
+            name: deploy-platformsh                                                                                                                                                                      
+            blocks:                                                                                                                                                                                      
+            - actions:                                                                                                                                                                                   
+              - from: .params.actions.Platformsh.${context.environment}.execute
       operations:
         params:
           image: michaeltigr/zebra-operations-druflow:0.1.4
