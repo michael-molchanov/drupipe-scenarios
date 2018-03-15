@@ -1,3 +1,9 @@
+Version 0.2.8:
+ - Merge pull request #35 from michael-molchanov/master
+ - Fix pattern
+ - Fix pattern.
+ - Add platform.sh container.
+
 Version 0.2.7:
  - Merge branch 'master' of github.com:aroq/drupipe-scenarios
  - Merge pull request #34 from michael-molchanov/master
