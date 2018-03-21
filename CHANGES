@@ -1,3 +1,9 @@
+Version 0.2.9:
+ - Merge pull request #37 from michael-molchanov/ansistrano_copy
+ - Merge pull request #36 from michael-molchanov/amaster
+ - Add ansible copy container.
+ - Remove cleanup before git pull.
+
 Version 0.2.8:
  - Merge pull request #35 from michael-molchanov/master
  - Fix pattern
