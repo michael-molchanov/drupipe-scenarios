@@ -52,6 +52,12 @@ params:
             blocks:
             - actions:
               - from: .params.actions.Ansible.${context.environment}.deployWithAnsistranoGit
+        ansible_copy:
+          params:
+            name: deploy-ansible-copy
+            blocks:
+            - actions:
+              - from: .params.actions.Ansible.${context.environment}.deployWithAnsistranoCopy
         platformsh:                                                                                                                                                                                      
           params:                                                                                                                                                                                        
             name: deploy-platformsh                                                                                                                                                                      
