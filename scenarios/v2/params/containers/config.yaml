@@ -3,10 +3,10 @@ params:
   containers:
     common:
       params:
-        image: michaeltigr/zebra-build-php-drush-docman:0.0.92
+        image: michaeltigr/zebra-build-php-drush-docman:0.0.96
       build:
         params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.92
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.96
         none:
           params:
            execute: false
@@ -58,11 +58,11 @@ params:
             blocks:
             - actions:
               - from: .params.actions.Ansible.${context.environment}.deployWithAnsistranoCopy
-        platformsh:                                                                                                                                                                                      
-          params:                                                                                                                                                                                        
-            name: deploy-platformsh                                                                                                                                                                      
-            blocks:                                                                                                                                                                                      
-            - actions:                                                                                                                                                                                   
+        platformsh:
+          params:
+            name: deploy-platformsh
+            blocks:
+            - actions:
               - from: .params.actions.Platformsh.${context.environment}.execute
       operations:
         params:
@@ -90,7 +90,7 @@ params:
               - from: .params.actions.YamlFileHandler.${context.environment}.operations
       artifact:
         params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.92
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.96
         none:
           params:
             execute: false
@@ -124,7 +124,7 @@ params:
                 from: .params.actions.VegetaTester.${context.environmt}.test
       drush:
         params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.92
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.96
         drush:
           params:
             name: drush
