@@ -160,4 +160,13 @@ params:
         type: common
         pipeline:
           from: .params.pipelines.backmerge
-
+    bump:
+      stable:
+        params:
+          type: common
+          params:
+            project_name: master
+            branch: master
+            tag: ''
+          pipeline:
+            from: .params.pipelines.bump.stable
