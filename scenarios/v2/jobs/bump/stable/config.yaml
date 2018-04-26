@@ -1,0 +1,7 @@
+from:
+  - v2/params/jobs
+
+jobs:
+  stable-bump:
+    from:
+      - .params.jobs.bump.stable

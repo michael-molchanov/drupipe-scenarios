@@ -114,4 +114,9 @@ params:
       params:
         containers:
           - from: .params.containers.common.backmerge
+    bump:
+      stable:
+        params:
+          containers:
+            - from: .params.containers.common.bump.stable
 

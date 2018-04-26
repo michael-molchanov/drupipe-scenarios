@@ -78,4 +78,8 @@ params:
       params:
         pods:
           - from: .params.pods.backmerge
-
+    bump:
+      stable:
+        params:
+          pods:
+            -from: .params.pods.bump.stable
