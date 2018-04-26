@@ -82,4 +82,4 @@ params:
       stable:
         params:
           pods:
-            -from: .params.pods.bump.stable
+            - from: .params.pods.bump.stable
