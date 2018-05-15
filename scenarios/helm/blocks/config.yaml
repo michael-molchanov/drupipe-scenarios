@@ -32,9 +32,9 @@ params:
           - from: .params.actions.GCloud.auth
 
     helm:
-      params:
-        pre_actions:
-        - from: .params.actions.Helm.init
+      # params:
+        # pre_actions:
+        # - from: .params.actions.Helm.init
 
       status:
         params:
