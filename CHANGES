@@ -1,3 +1,7 @@
+Version 0.3.4:
+ - Merge pull request #41 from michael-molchanov/amaster
+ - Add operationsMode support to commands container.
+
 Version 0.3.3:
  - Disable helm init
 
