@@ -81,7 +81,7 @@ params:
             name: operations-commands
             blocks:
             - actions:
-              - from: .params.actions.Commands.operations.${context.environment}.execute
+              - from: .params.actions.Commands.operations.${context.environment}.${context.env.operationsMode}.execute
         yaml:
           params:
             name: operations-yaml
