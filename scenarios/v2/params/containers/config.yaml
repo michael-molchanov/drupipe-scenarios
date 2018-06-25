@@ -30,7 +30,7 @@ params:
               - from: .params.actions.YamlFileHandler.build
       deploy:
         params:
-          image: michaeltigr/zebra-deploy-ansible:2.3.2.0
+          image: michaeltigr/zebra-deploy-ansible:2.3.2.0.1
         none:
           params:
             execute: false
@@ -110,7 +110,7 @@ params:
         taurus:
           params:
             name: taurus
-            image: michaeltigr/zebra-jmeter-taurus:1.10.4-travis
+            image: michaeltigr/zebra-jmeter-taurus:1.12.0-travis
             blocks:
             - actions:
               - from: .params.actions.TaurusTester.${context.environment}.tets
@@ -163,4 +163,9 @@ params:
           blocks:
           - actions:
             - from: .params.actions.Commands.backmerge.${context.environment}.execute
-
+      sync:
+        files:
+          aws:
+            params:
+              name: sync_files_aws
+              image: michaeltigr/zebra-aws-cli:latest
