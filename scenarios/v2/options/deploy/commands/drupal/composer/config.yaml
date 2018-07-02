@@ -6,7 +6,6 @@ params:
     Commands:
       deploy:
         post_blocks:
-          dev:
-            params:
-              actions:
-                - 'composer install --prefer-dist --optimize-autoloader'
+          params:
+            actions:
+              - 'composer install --prefer-dist --optimize-autoloader'
