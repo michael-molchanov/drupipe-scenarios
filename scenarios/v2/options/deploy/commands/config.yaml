@@ -18,8 +18,24 @@ params:
               - 'git init .'
               - 'echo "Update origin."'
               - 'git remote rm origin || true'
-              - 'git remote add -t develop -f origin ${context.components.master.repo}'
+              - 'git remote add -t ${context.components.master.states.development.version} -f origin ${context.components.master.repo}'
               - 'echo "Update repo."'
-              - 'git checkout develop'
-              - 'git reset --hard origin/develop'
-              - 'git pull origin develop'
+              - 'git checkout ${context.components.master.states.development.version}'
+              - 'git reset --hard origin/${context.components.master.states.development.version}'
+              - 'git pull origin ${context.components.master.states.development.version}'
+        stage:
+          params:
+            actions:
+              - 'echo "Add git config."'
+              - 'git config --global user.email "zebraproject@adyax.com"'
+              - 'git config --global user.name "zebra"'
+              - 'echo "Init repo."'
+              - 'git init .'
+              - 'echo "Update origin."'
+              - 'git remote rm origin || true'
+              - 'git remote add -t ${context.components.master.states.staging.version} -f origin ${context.components.master.repo}'
+              - 'echo "Update repo."'
+              - 'git checkout ${context.components.master.states.staging.version}'
+              - 'git reset --hard origin/${context.components.master.states.staging.version}'
+              - 'git pull origin ${context.components.master.states.staging.version}'
+

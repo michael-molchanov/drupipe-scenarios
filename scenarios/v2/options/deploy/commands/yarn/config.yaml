@@ -6,11 +6,10 @@ params:
     Commands:
       deploy:
         post_blocks:
-          dev:
-            params:
-              actions:
-                - 'yarn'
-                - 'yarn build'
+          params:
+            actions:
+              - 'yarn'
+              - 'yarn build'
   containers:
     common:
       build:

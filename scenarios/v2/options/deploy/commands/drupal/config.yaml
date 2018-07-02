@@ -6,25 +6,23 @@ params:
     Commands:
       deploy:
         pre_blocks:
-          dev:
-            params:
-              actions:
-                - 'if [ -d docroot/sites/default ]; then chmod 755 docroot/sites/default; fi'
-                - 'if [ -f docroot/sites/default/services.yml ]; then chmod 644 docroot/sites/default/services.yml; fi'
-                - 'if [ -f docroot/sites/default/default.services.yml ]; then chmod 644 docroot/sites/default/default.services.yml; fi'
-                - 'if [ -f docroot/sites/default/settings.php ]; then chmod 644 docroot/sites/default/settings.php; fi'
-                - 'if [ -f docroot/sites/default/default.settings.php ]; then chmod 644 docroot/sites/default/default.settings.php; fi'
-                - 'if [ -d docroot/sites/default/files ]; then chmod 755 docroot/sites/default/files; fi'
+          params:
+            actions:
+              - 'if [ -d docroot/sites/default ]; then chmod 755 docroot/sites/default; fi'
+              - 'if [ -f docroot/sites/default/services.yml ]; then chmod 644 docroot/sites/default/services.yml; fi'
+              - 'if [ -f docroot/sites/default/default.services.yml ]; then chmod 644 docroot/sites/default/default.services.yml; fi'
+              - 'if [ -f docroot/sites/default/settings.php ]; then chmod 644 docroot/sites/default/settings.php; fi'
+              - 'if [ -f docroot/sites/default/default.settings.php ]; then chmod 644 docroot/sites/default/default.settings.php; fi'
+              - 'if [ -d docroot/sites/default/files ]; then chmod 755 docroot/sites/default/files; fi'
         post_blocks:
-          dev:
-            params:
-              actions:
-                - 'if [ -d docroot/sites/default ]; then chmod 755 docroot/sites/default; fi'
-                - 'if [ -f docroot/sites/default/services.yml ]; then chmod 644 docroot/sites/default/services.yml; fi'
-                - 'if [ -f docroot/sites/default/default.services.yml ]; then chmod 644 docroot/sites/default/default.services.yml; fi'
-                - 'if [ -f docroot/sites/default/settings.php ]; then chmod 644 docroot/sites/default/settings.php; fi'
-                - 'if [ -f docroot/sites/default/default.settings.php ]; then chmod 644 docroot/sites/default/default.settings.php; fi'
-                - 'if [ -d docroot/sites/default/files ]; then chmod 755 docroot/sites/default/files; fi'
+          params:
+            actions:
+              - 'if [ -d docroot/sites/default ]; then chmod 755 docroot/sites/default; fi'
+              - 'if [ -f docroot/sites/default/services.yml ]; then chmod 644 docroot/sites/default/services.yml; fi'
+              - 'if [ -f docroot/sites/default/default.services.yml ]; then chmod 644 docroot/sites/default/default.services.yml; fi'
+              - 'if [ -f docroot/sites/default/settings.php ]; then chmod 644 docroot/sites/default/settings.php; fi'
+              - 'if [ -f docroot/sites/default/default.settings.php ]; then chmod 644 docroot/sites/default/default.settings.php; fi'
+              - 'if [ -d docroot/sites/default/files ]; then chmod 755 docroot/sites/default/files; fi'
   containers:
     common:
       deploy:
