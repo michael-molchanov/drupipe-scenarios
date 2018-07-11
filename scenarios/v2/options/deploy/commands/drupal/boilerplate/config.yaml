@@ -12,3 +12,10 @@ params:
               - 'ln -sfn ${context.environments[context.environment].root}/shared/${context.project_subdirectory}/docroot/sites/default/files ${context.environments[context.environment].root}/current/${context.project_subdirectory}/docroot/sites/default/files'
               - 'echo "Set environment."'
               - 'ln -sfn ${context.environments[context.environment].root}/shared/${context.project_subdirectory}/environments/env.settings.php ${context.environments[context.environment].root}/current/${context.project_subdirectory}/environments/env.settings.php'
+        stage:
+          params:
+            actions:
+              - 'echo "Add shared files."'
+              - 'ln -sfn ${context.environments[context.environment].root}/shared/${context.project_subdirectory}/docroot/sites/default/files ${context.environments[context.environment].root}/current/${context.project_subdirectory}/docroot/sites/default/files'
+              - 'echo "Set environment."'
+              - 'ln -sfn ${context.environments[context.environment].root}/shared/${context.project_subdirectory}/environments/env.settings.php ${context.environments[context.environment].root}/current/${context.project_subdirectory}/environments/env.settings.php'
