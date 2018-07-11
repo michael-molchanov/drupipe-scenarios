@@ -6,10 +6,16 @@ params:
     Commands:
       deploy:
         post_blocks:
-          params:
-            actions:
-              - 'npm install'
-              - 'npm run build'
+          dev:
+            params:
+              actions:
+                - 'npm install'
+                - 'npm run build'
+          stage:
+            params:
+              actions:
+                - 'npm install'
+                - 'npm run build'
   containers:
     common:
       build:
