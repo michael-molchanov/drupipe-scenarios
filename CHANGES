@@ -1,3 +1,7 @@
+Version 0.3.8:
+ - Merge pull request #46 from michael-molchanov/patch-3
+ - Add ssh keep alive to ssh config.
+
 Version 0.3.7:
  - Merge pull request #45 from michael-molchanov/master
  - Fix commands deploy.
