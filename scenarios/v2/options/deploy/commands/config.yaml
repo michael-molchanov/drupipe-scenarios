@@ -21,6 +21,7 @@ params:
               - 'git remote add -t ${context.components.master.states.development.version} -f origin ${context.components.master.repo}'
               - 'echo "Update repo."'
               - 'git checkout ${context.components.master.states.development.version}'
+              - 'git diff --name-only ${context.components.master.states.development.version} origin/${context.components.master.states.development.version} | tee .unipipe.changed_files'
               - 'git reset --hard origin/${context.components.master.states.development.version}'
               - 'git pull origin ${context.components.master.states.development.version}'
         stage:
@@ -36,6 +37,7 @@ params:
               - 'git remote add -t ${context.components.master.states.staging.version} -f origin ${context.components.master.repo}'
               - 'echo "Update repo."'
               - 'git checkout ${context.components.master.states.staging.version}'
+              - 'git diff --name-only ${context.components.master.states.staging.version} origin/${context.components.master.states.staging.version} | tee .unipipe.changed_files'
               - 'git reset --hard origin/${context.components.master.states.staging.version}'
               - 'git pull origin ${context.components.master.states.staging.version}'
 
