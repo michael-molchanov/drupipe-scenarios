@@ -3,10 +3,10 @@ params:
   containers:
     common:
       params:
-        image: michaeltigr/zebra-build-php-drush-docman:0.0.98.1
+        image: michaeltigr/zebra-build-php-drush-docman:0.0.98.2
       build:
         params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.98.1
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.98.2
         none:
           params:
            execute: false
@@ -90,7 +90,7 @@ params:
               - from: .params.actions.YamlFileHandler.${context.environment}.operations
       artifact:
         params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.98.1
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.98.2
         none:
           params:
             execute: false
@@ -126,13 +126,13 @@ params:
         stable:
           params:
             name: bump_stable
-            image: michaeltigr/zebra-build-php-drush-docman:0.0.98.1
+            image: michaeltigr/zebra-build-php-drush-docman:0.0.98.2
             blocks:
             - actions:
               - from: .params.actions.Docman.bumpStable
       drush:
         params:
-          image: michaeltigr/zebra-build-php-drush-docman:0.0.98.1
+          image: michaeltigr/zebra-build-php-drush-docman:0.0.98.2
         drush:
           params:
             name: drush
